@@ -1,49 +1,96 @@
-# Dàn ý bài nộp *(spec.md — nộp trước 23:59 ngày lab của lớp)*
+# Bài nộp LAB5 — T4 · Thương mại điện tử · Nhóm NNH
 
-> Copy dàn ý này vào `spec.md` của nhóm. Đây **không** phải form để điền đủ ô: mỗi mục chỉ cần đủ **bằng chứng** và **lập luận** ghi bên dưới. Viết ngắn, gạch đầu dòng là được. Hướng dẫn từng chặng: `02-guide.md`. Cách chấm: `04-rubric.md`.
->
-> **Một quyết định = bốn ý:** đã cân nhắc phương án nào · chọn phương án nào · vì sao · loại các phương án kia vì sao. Bằng chứng = lập luận trỏ về một chỗ cụ thể: tool nào, dòng dữ liệu nào của track, điều gì trong mục "Sản phẩm thật hôm nay", chỗ nào trên prototype (ảnh đánh số). Không chạy agent.
+**Lớp:** L3B · **Bàn / zone:** ____ · **Track:** T4 — Thương mại điện tử
 
-```markdown
-# Bài nộp LAB5 — [Track] · Nhóm [tên]
-[Danh sách thành viên và việc mỗi người làm — copy bảng từ README]
+| Họ và Tên | Mã Học Viên | Việc đã làm |
+|---|---|---|
+| Nguyễn Gia Nam | 2A202603761 | Chặng 1 — §1.1 lát cắt, §1.2 hôm nay vs AI được thêm quyền |
+| Thiều Thế Ngọc | 2A202603788 | Chặng 1 — §1.4 bốn việc không làm (N1–N4) |
+| Đào Ngọc Hân | 2A202603779 | Chặng 1 — §1.3 bảng hướng sai, §1.5 hàng rào phạm vi |
+
+> Mã học viên là căn cứ đối chiếu điểm. Phân công chặng 1 ghi theo gợi ý trong kế hoạch; nhóm đổi được khi chốt. Việc chặng 2–5 cập nhật vào cột này khi làm xong.
 
 ## §1. Lát cắt & phạm vi
-- Lát cắt (chép từ track).
-- 3 việc tính năng KHÔNG làm, mỗi việc một câu vì sao.
 
-## §2. Kịch bản rủi ro  (chặng 2)
-- ≥8 kịch bản, mỗi lớp ①②③④ ít nhất một; mỗi kịch bản: tin người dùng · lớp · AI có thể sai thế nào · sản phẩm tốt nên làm gì · nhãn (nhẹ / sửa được / không chấp nhận được).
-- Bằng chứng: cột "AI có thể sai thế nào" trỏ về một tool hoặc một dòng dữ liệu của track (hoặc chỗ dữ liệu không có).
-- Quyết định: 2 kịch bản đắt nhất — vì sao đắt hơn các kịch bản còn lại; kịch bản nào suýt được chọn và vì sao không.
+### 1.1 Lát cắt (chép nguyên văn từ `tracks/t4-ecommerce.md`)
 
-## §3. Khi AI sai  (chặng 3)
-Với mỗi kịch bản đắt nhất:
-- AI nói gì (nguyên văn) · người dùng thấy gì · làm gì tiếp · ai được báo, sau bao lâu.
-- Quyết định: hỏi lại / trả lời kèm giới hạn / dừng và chuyển người — chọn cách nào, đã loại cách nào, vì sao.
-- Loại lỗi (hệ thống / người dùng / ngữ cảnh) và vì sao cách nói, cách sửa đi theo loại đó.
-- 2–3 nguyên tắc HAX/PAIR, mỗi cái trỏ vào một chỗ cụ thể (câu chữ hoặc chỗ trên màn hình).
-- Lỗi nào sửa câu chữ không cứu được (nếu có), và thiết kế cứu nó thế nào.
+> Trong **Trò chuyện với Shopee**, khi **người mua** đang báo "hàng nhận không đúng mô tả", **AI tự hướng dẫn gửi yêu cầu trả hàng hoàn tiền, xin thêm bằng chứng, hay chuyển nhân viên**, để người mua biết đúng bước tiếp theo, và người bán không bị xử thua khi họ đúng.
 
-## §4. Mức tự chủ  (chặng 4)
-Với mỗi tool:
-- Mức của nhóm (tự làm / cần người duyệt / cấm). Nếu cần người duyệt: ai duyệt · người duyệt thấy gì · quá hạn thì sao.
-- Lý do theo cost-of-error: sai thì ai chịu gì · đảo lại được không · chờ người thì mất gì.
-- Phương án đã cân nhắc và vì sao loại.
-Thêm:
-- Tool khó xếp nhất: mỗi người từng chọn gì, cái giá của mỗi phía (trỏ về kịch bản ở §2), nhóm chốt thế nào.
-- Thử mức đã đặt trên 2 kịch bản đắt nhất + 1 kịch bản bình thường: cái sai có bị chặn không? còn việc nào làm khi lẽ ra phải hỏi? người dùng bình thường có phải chờ vô ích không?
-- Luật thêm hoặc tool tách bước (nếu có), và vì sao.
-- Một mức tự chủ đã đổi lời hứa nào với người dùng.
+Một câu: **người mua** báo **hàng nhận không đúng mô tả**; AI chọn **một trong ba đường** — hướng dẫn trả hàng/hoàn tiền, xin thêm bằng chứng, chuyển nhân viên — để **người mua biết bước tiếp theo** và **người bán không bị xử thua khi họ đúng**.
 
-## §5. Prototype  (chặng 5)
-- Link hoặc file · công cụ · phần nào mock · có lời gọi AI thật không.
-- 1–2 ảnh có đánh số; mỗi số: thể hiện gì · nguyên tắc HAX/PAIR nào · mức tự chủ nào.
-- Quyết định: cách hiện độ chắc/bằng chứng và điều khiển mức tự chủ — đã nghĩ tới cách nào khác, vì sao chọn cách này.
+*Nguồn: `t4-ecommerce.md` d.28 (lát cắt phát sẵn), d.30–32 (bảng một người dùng · một việc · một quyết định · một kết quả).*
 
-## §6. Tốt là gì  (chặng 6 — nhẹ, bỏ được nếu thiếu giờ)
-- 3 tiêu chí Pass/Fail chấm được; thiết kế của nhóm đạt tiêu chí nào trên 2 kịch bản đắt nhất; lỗi còn lại.
+### 1.2 Hôm nay sản phẩm làm gì, AI được thêm quyền gì
+
+- **Hôm nay:** trợ lý chạy theo menu cứng; nhiều luồng bắt người mua chọn một đơn thật trước khi đi tiếp. Luồng trả hàng/hoàn tiền: chọn đơn → chọn lý do → gửi bằng chứng → người bán phản hồi → Shopee xem xét nếu hai bên không thống nhất.
+- **AI được thêm quyền:** quyền **đọc hồ sơ và định tuyến** thay các bước hôm nay người mua phải tự bấm trong menu (chọn đơn → chọn lý do) — đọc nội dung khiếu nại, so với **mô tả lúc đặt hàng** (không phải mô tả hiện tại — người bán có thể đã sửa), rồi chọn đường đi, soạn nội dung xin bằng chứng và soạn đề xuất.
+- **AI vẫn không được làm:** không tự thực thi quyết định tiền (hoàn tiền, đóng khiếu nại), không phạt shop, không đổi hàng hay hứa bồi thường. Mức tự chủ từng tool do §4 quyết, nhưng §1 chốt **trần**: AI không tự bấm các quyết định đó — người mua bấm "gửi yêu cầu", nhân viên sàn bấm duyệt.
+- **Vì sao đặt AI vào đúng chỗ này:** người mua *"gửi ảnh rồi mà cứ bị hỏi lại, không ai nói tôi còn thiếu cái gì"*; người bán *"khách doạ bóc phốt là sàn hoàn luôn, bên tôi đúng cũng chẳng ai nghe"* — lỗi hiện tại không phải thiếu menu, mà là **thiếu người đọc hồ sơ và thiếu sự trung lập**.
+
+*Nguồn: `t4-ecommerce.md` d.7–11 (sản phẩm thật hôm nay), d.23–24 (câu người trong cuộc), d.26 (bài toán gốc), d.60 (so mô tả lúc đặt).*
+
+### 1.3 Nếu AI sai, ai chịu gì
+
+**Chính sách dựng trong bài** (nhóm tự đặt, không phải chính sách thật — track d.11 ghi bản thật là 15 ngày và nói rõ khác bản dựng): yêu cầu trả hàng phải gửi trong **7 ngày** kể từ lúc giao thành công; người bán có **48 giờ** phản hồi trước khi hồ sơ lên nhân viên sàn. Chọn 7 ngày thay vì 15 vì hạn ngắn làm cái giá của "hỏi lại/vòng vo" thành thật — đúng thứ lát cắt này lo — và 48 giờ là mốc để màn hình người bán có ý nghĩa.
+
+| Hướng sai | Ai mất gì | Đảo lại được không | Nhãn |
+|---|---|---|---|
+| **Hoàn tiền sai** | Người bán mất tiền và hàng | `soan_hoan_tien` **khó** — tiền đã về người mua | **Không chấp nhận được** |
+| **Từ chối / đóng khiếu nại sai** | Người mua mất tiền, giữ món hàng sai và hết đường khiếu nại | `tu_choi_khieu_nai` **khó** — tiền đã về người bán | **Không chấp nhận được** |
+| **Hỏi lại / vòng vo sai** | Người mua chờ, phải gửi lại bằng chứng; người bán chờ vô ích | `yeu_cau_bang_chung` — **tin đã tới**, không thu hồi được, nhưng chỉ mất thời gian, không mất tiền | **Sửa được** — thành **không chấp nhận được** nếu trễ hạn trả hàng |
+| **Chuyển nhầm người** | Hồ sơ đi sai chỗ, cả hai bên chờ thêm | `chuyen_truong_nhom` **được** | **Nhẹ** |
+| **Hứa việc không có tool** (đổi hàng, bồi thường) | Người mua chờ một việc không xảy ra, phải làm lại từ đầu; nếu chờ tới quá hạn 7 ngày thì mất luôn quyền trả hàng | Không có tool để đảo; phải xin lỗi và chuyển người | **Sửa được** — thành **không chấp nhận được** nếu ăn vào hạn 7 ngày |
+| **Phạt shop sai** (ngoài lát cắt) | Cả shop mất uy tín và doanh thu, người mua không được gì | `phat_shop` **khó**, ảnh hưởng cả shop | **Không chấp nhận được** — nên cấm ở §4 |
+
+**Hướng sai đắt nhất: hai hướng ra quyết định tiền — hoàn sai (N1) và từ chối sai (N2) — vì cùng một gốc: quyết khi chưa nghe đủ hai bên.** Cả hai đều làm một bên mất tiền thật và không đảo lại được. "Từ chối cho chắc" cũng làm người mua đúng mất tiền; "hoàn cho xong" làm người bán đúng mất tiền. Vì vậy tiêu chí thiết kế là **trung lập**, không phải "an toàn cho sàn".
+
+*Nguồn: `t4-ecommerce.md` d.11 (thời hạn thật 15 ngày, khác bản dựng), d.19 (sai hướng nào cũng một bên chịu), d.38–44 (bảng tool + đảo lại được không), d.67 (phải nói rõ thời hạn); `02-guide.md` d.58 (nhãn nhẹ / sửa được / không chấp nhận được).*
+
+### 1.4 Bốn việc tính năng KHÔNG làm
+
+Hai việc đầu chặn ở mức **tự thực thi** (vẫn được soạn đề xuất để người có thẩm quyền duyệt); hai việc sau chặn hẳn, không có đường duyệt.
+
+1. **N1 · Không tự thực thi hoàn tiền.** Đã cân nhắc "AI tự hoàn khi hồ sơ đủ chắc" để giảm thời gian chờ; chọn chỉ **soạn đề xuất** để người có thẩm quyền duyệt; loại tự hoàn vì tiền về người mua ngay, người bán chưa được phản hồi, và ảnh không chứng minh được mô tả **tại thời điểm đặt**. Tool: `soan_hoan_tien` (**khó đảo**).
+2. **N2 · Không tự thực thi từ chối / đóng khiếu nại.** Đã cân nhắc "từ chối cho chắc" khi bằng chứng mỏng; chọn giữ khiếu nại mở, xin thêm bằng chứng hoặc chuyển người; loại từ chối sớm vì tiền về người bán, người mua hết đường, và dễ thành phản xạ đóng hồ sơ. Tool: `tu_choi_khieu_nai` (**khó đảo**).
+3. **N3 · Không xử phạt, khoá shop, hay kết luận hàng giả.** Đã cân nhắc dùng `phat_shop` làm nút "xử lý mạnh" cho ca nghi hàng giả; chọn chuyển bộ phận chuyên trách và **không hứa phạt**; loại vì ngoài luồng "không đúng mô tả", AI không có căn cứ xác thực, và `phat_shop` ảnh hưởng cả shop. Tool: `phat_shop` (**khó**, phạm vi cả shop).
+4. **N4 · Không đổi hàng, đổi đơn, hay hứa bồi thường ngoài chính sách.** Đã cân nhắc mở sang đổi hàng cho ca sai size; chọn chỉ đi trong ba đường của lát cắt; loại vì cần đồng ý người bán + một luồng riêng, và hứa việc không tool nào làm được là lỗi "hứa việc mình không làm được". Tool: **không có tool** đổi hàng/đổi đơn/bồi thường trong bảng d.38–44.
+
+**Ranh giới an toàn đi kèm (không tính vào 4 việc trên):** không đưa số điện thoại/địa chỉ giữa hai bên; lời doạ bóc phốt không phải căn cứ; lịch sử một bên không phải căn cứ duy nhất.
+
+*Nguồn: `t4-ecommerce.md` d.38–44 (bảng tool), d.63–66 (rubric riêng mục 4–7), d.71 (an toàn & đạo đức); `02-guide.md` d.29 (câu hỏi "ba việc không làm").*
+
+### 1.5 Hàng rào phạm vi (checklist cho prototype ở chặng 5)
+
+- [ ] Không có nút **do AI bấm** để hoàn tiền / từ chối / phạt shop. Nút "gửi yêu cầu trả hàng" của **người mua** vẫn có (đó là hành động của người dùng, AI chỉ hướng dẫn). Nếu §4 xếp `soan_hoan_tien` / `tu_choi_khieu_nai` ở *cần người duyệt* thì nút duyệt nằm ở màn hình nhân viên.
+- [ ] Không có nút **đổi hàng / đổi đơn / bồi thường** ngoài chính sách trả hàng hoàn tiền.
+- [ ] Mọi nhánh "không chắc" đều có đường **chuyển nhân viên / trưởng nhóm**.
+- [ ] Có chỗ **xin thêm bằng chứng** và nói rõ người mua còn thiếu gì.
+- [ ] Hiện **thời hạn 7 ngày và còn bao nhiêu ngày** ngay chỗ người mua quyết định gửi yêu cầu (rubric riêng T4 mục 8).
+- [ ] Nếu có màn hình người bán: thấy khiếu nại và **hạn phản hồi** trước khi quyết.
+- [ ] Không hiện **số điện thoại / địa chỉ** giữa hai bên; không dùng lời doạ làm căn cứ.
+
+*Nguồn: `04-rubric.md` d.60 ("việc cấm không có nút làm"), d.90 (TA hỏi "chỗ nào trên màn hình là G__"); `t4-ecommerce.md` d.62 (hạn phản hồi), d.65 (không đưa SĐT/địa chỉ), d.67 (thời hạn trả hàng hiển thị), d.69 (bonus màn người bán).*
+
+## §2. Kịch bản rủi ro (chặng 2)
+
+_Chưa điền — làm ở chặng 2._ Ràng buộc từ §1: phủ 4 lớp ①②③④, phủ 6 hard test (`t4-ecommerce.md` d.56), và có ít nhất một kịch bản cho mỗi việc N1–N4.
+
+## §3. Khi AI sai (chặng 3)
+
+_Chưa điền — làm ở chặng 3._
+
+## §4. Mức tự chủ (chặng 4)
+
+_Chưa điền — làm ở chặng 4._ Trần từ §1: `soan_hoan_tien` / `tu_choi_khieu_nai` tối đa **cần người duyệt**, `phat_shop` **cấm**, `yeu_cau_bang_chung` / `chuyen_truong_nhom` được tự làm.
+
+## §5. Prototype (chặng 5)
+
+_Chưa điền — làm ở chặng 5._ Phải tick đủ 6 ô ở §1.5.
+
+## §6. Tốt là gì (chặng 6)
+
+_Chưa điền — làm ở chặng 6._
 
 ## §7. Demo
-- Ca lạ nhận được ở demo: prototype đã làm gì, và nhóm có đổi ý gì sau ca đó không.
-```
+
+_Chưa điền — cập nhật sau demo._
