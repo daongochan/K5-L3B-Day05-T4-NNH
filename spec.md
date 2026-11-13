@@ -90,7 +90,31 @@ Hai việc đầu chặn ở mức **tự thực thi** (vẫn được soạn đ
 
 ## §3. Khi AI sai (chặng 3)
 
-_Chưa điền — làm ở chặng 3._
+Hai kịch bản đắt nhất được chọn ở §2 là **K1** (từ chối oan do dùng sai phiên bản mô tả) và **K2** (hoàn oan do ảnh chưa gắn với đơn, cộng áp lực đe doạ). Mọi mốc dưới đây là mục tiêu thiết kế cho prototype; mốc phản hồi người bán 48 giờ theo chính sách dựng ở §1.3.
+
+### K1 · Mô tả hiện tại khác mô tả lúc đặt
+
+- **AI nói (nguyên văn):** “Mô tả hiện tại ghi 5 lít, nhưng thông tin này chưa đủ để xác định mô tả tại thời điểm bạn đặt hàng. Mình chưa thể kết luận khiếu nại đúng hay sai. Mình sẽ chuyển hồ sơ để đối chiếu lịch sử mô tả và bằng chứng của hai bên; bạn chưa cần gửi lại thông tin đơn hàng.”
+- **Người dùng thấy / làm tiếp:** màn hình giữ khiếu nại ở trạng thái **Đang đối chiếu**, hiện song song mô tả lúc mua (nếu truy xuất được), mô tả hiện tại và mốc thời gian; nếu thiếu bản lưu lúc mua, ghi rõ “Chưa truy xuất được mô tả tại thời điểm đặt hàng”. Không hiện nút AI từ chối/hoàn tiền. Người mua có thể bổ sung ảnh đo dung tích nếu có.
+- **Báo ai, khi nào:** báo người mua ngay trong cuộc trò chuyện; báo người bán ngay trong Shopee và cho 48 giờ phản hồi. Nếu thiếu bản lưu hoặc hai phiên bản mâu thuẫn, báo trưởng nhóm ngay; mục tiêu xác nhận đã nhận hồ sơ trong **1 giờ làm việc** (SLA đề xuất), không hứa thời điểm có kết luận.
+- **Quyết định:** **dừng và chuyển người** khi không có bản mô tả bất biến tại thời điểm đặt hoặc dữ liệu xung đột. Đã loại “hỏi lại người mua” làm cách xử lý chính vì câu trả lời của họ không khôi phục được bản ghi hệ thống; đã loại “trả lời kèm giới hạn” rồi tự quyết vì có nguy cơ biến thiếu dữ liệu thành từ chối oan. Chỉ xin bổ sung bằng chứng đo như một bước hỗ trợ, không thay việc chuyển người.
+- **Loại lỗi:** **lỗi hệ thống/ngữ cảnh dữ liệu** — hệ thống không giữ hoặc không truy xuất đúng phiên bản mô tả tại thời điểm mua. Câu chữ nhận trách nhiệm về giới hạn xác minh, không quy lỗi cho người mua hay khẳng định shop sai; cách sửa là lưu và đối chiếu snapshot có dấu thời gian, rồi để nhân viên xử lý khi thiếu snapshot.
+
+### K2 · Ảnh size M chưa xác minh thuộc đơn nào
+
+- **AI nói (nguyên văn):** “Mình chưa xác minh được ảnh size M thuộc đơn hàng này; thông tin đơn và tem shop hiện ghi size L. Vì vậy mình chưa thể kết luận hoàn tiền hay từ chối. Bạn vui lòng gửi ảnh tem sản phẩm cạnh mã đơn hoặc gắn ảnh hiện có với đơn này. Mình sẽ ghi nhận ý kiến của cả hai bên; lời nhắn về việc đăng bài không ảnh hưởng đến kết luận.”
+- **Người dùng thấy / làm tiếp:** màn hình nêu rõ ảnh nào đã nhận, ảnh nào chưa liên kết được với đơn và vì sao; có một thao tác **Gắn ảnh với đơn / Gửi ảnh tem**. Trạng thái khiếu nại vẫn mở, không có nút tự hoàn tiền. Người bán được mời phản hồi; nếu ảnh vẫn không xác minh được hoặc hai bên bất đồng, hồ sơ chuyển nhân viên.
+- **Báo ai, khi nào:** báo người mua ngay sau khi phát hiện ảnh chưa liên kết; báo người bán ngay để phản hồi trong 48 giờ; báo nhân viên hỗ trợ ngay nếu bằng chứng tiếp tục mâu thuẫn hoặc không xác minh được. Mục tiêu xác nhận nhân viên đã nhận hồ sơ trong **1 giờ làm việc** (SLA đề xuất); không hứa trước kết quả xử lý.
+- **Quyết định:** **hỏi lại một việc cụ thể** — yêu cầu gắn ảnh với đơn hoặc gửi ảnh tem có thể đối chiếu. Đã loại “trả lời kèm giới hạn” đơn thuần vì không giúp xác minh ảnh; đã loại chuyển người ngay ở bước đầu vì lỗi liên kết có thể sửa nhanh bằng một thao tác. Nếu người mua không thể bổ sung hoặc mâu thuẫn vẫn còn, dừng quyết định tự động và chuyển nhân viên; không dùng lời đe doạ làm chứng cứ.
+- **Loại lỗi:** **lỗi ngữ cảnh/thiếu liên kết chứng cứ**, không mặc định là người mua khai sai. Câu chữ mô tả chính xác điều hệ thống chưa xác minh được và yêu cầu một hành động sửa cụ thể; không buộc tội, cũng không để áp lực cảm xúc quyết định thay chứng cứ.
+
+### Nguyên tắc HAX/PAIR áp dụng
+
+- **Scope services when in doubt (giới hạn dịch vụ khi chưa chắc):** tại trạng thái K1 **Đang đối chiếu** và K2 **Chưa xác minh được ảnh**, hệ thống không cho AI gọi `tu_choi_khieu_nai` hay `soan_hoan_tien`; chuyển người khi thiếu dữ liệu hoặc còn mâu thuẫn.
+- **Make clear why the system did what it did (nêu rõ lý do):** ngay dưới trạng thái khiếu nại, hiển thị mốc mô tả lúc mua so với hiện tại ở K1; ở K2, chỉ rõ ảnh đã nhận nhưng chưa gắn được với đơn nào. Các câu AI nói phía trên giải thích vì sao chưa có kết luận.
+- **Support efficient correction (giúp sửa sai thuận tiện):** K1 không bắt người mua nhập lại thông tin đơn đã có; K2 cung cấp đúng một thao tác để gắn ảnh với đơn hoặc gửi ảnh tem, thay vì yêu cầu gửi lại toàn bộ hồ sơ.
+
+**Lỗi câu chữ không thể tự cứu:** K1 không có snapshot mô tả tại thời điểm mua; K2 không có dữ liệu liên kết ảnh với đơn hoặc không thể xác thực ảnh. Dù AI diễn đạt thận trọng, dữ liệu thiếu vẫn không cho phép kết luận đúng. Thiết kế cứu: lưu snapshot mô tả theo đơn và nhật ký phiên bản; gắn ảnh với mã đơn cùng trạng thái xác minh; giữ khiếu nại mở, chặn tool quyết định tiền trong lúc thiếu căn cứ, và chuyển nhân viên khi không thể khôi phục/đối chiếu dữ liệu.
 
 ## §4. Mức tự chủ (chặng 4)
 
