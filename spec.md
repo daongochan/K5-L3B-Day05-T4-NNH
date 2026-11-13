@@ -118,7 +118,172 @@ Hai kịch bản đắt nhất được chọn ở §2 là **K1** (từ chối o
 
 ## §4. Mức tự chủ (chặng 4)
 
-_Chưa điền — làm ở chặng 4._ Trần từ §1: `soan_hoan_tien` / `tu_choi_khieu_nai` tối đa **cần người duyệt**, `phat_shop` **cấm**, `yeu_cau_bang_chung` / `chuyen_truong_nhom` được tự làm.
+### 4.1. Phân loại mức tự chủ của 5 tool
+
+Nhóm thống nhất 3 mức tự chủ:
+
+- Tự làm: AI có thể thực hiện hành động, phải thông báo cho người dùng và có cách sửa hoặc hoàn tác khi phù hợp.
+- Cần người duyệt: AI chỉ tạo đề xuất, nhân viên có thẩm quyền xem xét và xác nhận trước khi quyết định có hiệu lực.
+- Cấm: AI không được thực hiện hành động, kể cả khi người dùng yêu cầu.
+
+| Tool | Mức tự chủ | Người duyệt / Điều kiện |
+|---|---|---|
+| `yeu_cau_bang_chung` | Tự làm | Không cần duyệt; phải chỉ rõ bằng chứng còn thiếu, tránh yêu cầu lặp. |
+| `chuyen_truong_nhom` | Tự làm | Không cần duyệt; phải hiển thị trạng thái chuyển hồ sơ. |
+| `soan_hoan_tien` | Cần người duyệt | Nhân viên sàn duyệt sau khi xem bằng chứng của hai bên. |
+| `tu_choi_khieu_nai` | Cần người duyệt | Nhân viên sàn duyệt; không được đóng hồ sơ khi thiếu căn cứ. |
+| `phat_shop` | Cấm | Không có nút thực hiện trong prototype. |
+
+### 4.2. Lập luận theo Cost-of-Error
+
+#### Tool 1: `yeu_cau_bang_chung` — Tự làm
+
+- **Nếu sai:** AI yêu cầu bằng chứng đã được gửi, khiến người mua mất thời gian, khó chịu và có nguy cơ quá hạn trả hàng (K6, K8).
+- **Khả năng đảo ngược:** Có thể hủy yêu cầu đang chờ hoặc sửa nội dung yêu cầu; không thể thu hồi tin nhắn đã gửi.
+- **Nếu chờ người duyệt:** Những trường hợp đơn giản cũng phải chờ nhân viên, làm tăng thời gian xử lý.
+- **Phương án cân nhắc:** Tự làm hoặc cần người duyệt.
+- **Quyết định:** Chọn Tự làm, vì chi phí của một yêu cầu bổ sung sai thường thấp hơn chi phí phải chờ nhân viên trong mọi trường hợp.
+- **Luật bổ sung:** AI phải kiểm tra danh sách bằng chứng đã nhận trước khi yêu cầu thêm. Không gửi trùng yêu cầu còn hiệu lực. Nếu gần hết hạn trả hàng, ưu tiên hướng dẫn gửi yêu cầu hợp lệ hoặc chuyển nhân viên thay vì tiếp tục hỏi.
+
+#### Tool 2: `chuyen_truong_nhom` — Tự làm
+
+- **Nếu sai:** Hồ sơ chuyển nhầm bộ phận, gây chậm trễ cho cả người mua và người bán (K3, K8).
+- **Khả năng đảo ngược:** Có thể điều phối lại hồ sơ đến đúng người phụ trách.
+- **Nếu chờ người duyệt:** Việc chuyển tuyến bị chậm, đặc biệt nguy hiểm khi gần hết hạn khiếu nại.
+- **Phương án cân nhắc:** Tự làm hoặc cần người duyệt.
+- **Quyết định:** Chọn Tự làm, vì chuyển tuyến không trực tiếp quyết định tiền và có thể sửa được.
+- **Luật bổ sung:** Hồ sơ phải kèm mã đơn, lý do chuyển, bằng chứng hiện có và những thông tin còn thiếu. Người mua thấy trạng thái chuyển hồ sơ. Nếu chuyển nhầm, nhân viên có thể điều phối lại.
+
+#### Tool 3: `soan_hoan_tien` — Cần người duyệt
+
+- **Nếu sai:** Người bán có thể mất tiền và hàng dù đã giao đúng sản phẩm (K2).
+- **Khả năng đảo ngược:** Đề xuất chưa duyệt có thể sửa hoặc hủy; quyết định hoàn tiền sau khi thực thi khó đảo ngược.
+- **Nếu chờ người duyệt:** Người mua phải chờ thêm, có thể không hài lòng hoặc lo lắng về thời hạn xử lý.
+- **Phương án cân nhắc:** Tự làm, cần người duyệt hoặc cấm.
+- **Quyết định:** Chọn Cần người duyệt. Không chọn tự làm vì bằng chứng ảnh có thể không thuộc đơn hàng. Không chọn cấm hoàn toàn vì AI vẫn có thể hỗ trợ nhân viên bằng cách tổng hợp hồ sơ và soạn đề xuất.
+- **Người duyệt:** Nhân viên xử lý tranh chấp của sàn.
+- **Người duyệt thấy:** Mã đơn, thông tin sản phẩm tại thời điểm đặt hàng, bằng chứng người mua, phản hồi người bán, điểm mâu thuẫn và lý do AI đề xuất hoàn tiền.
+- **Quá hạn duyệt:** Hồ sơ giữ trạng thái chờ, không tự hoàn tiền. Hệ thống cảnh báo và chuyển trưởng nhóm; người mua được thông báo tình trạng xử lý.
+
+#### Tool 4: `tu_choi_khieu_nai` — Cần người duyệt
+
+- **Nếu sai:** Người mua có thể mất tiền và quyền khiếu nại dù sản phẩm nhận được thực sự không đúng mô tả (K1, K7).
+- **Khả năng đảo ngược:** Đề xuất chưa duyệt có thể hủy; sau khi đóng khiếu nại, việc khôi phục quyền lợi khó khăn.
+- **Nếu chờ người duyệt:** Người bán phải chờ thêm để nhận kết quả cuối cùng.
+- **Phương án cân nhắc:** Tự làm, cần người duyệt hoặc cấm.
+- **Quyết định:** Chọn Cần người duyệt. Không chọn tự làm vì AI có thể sử dụng mô tả hiện tại thay cho mô tả lúc mua. Không chọn cấm hoàn toàn vì vẫn có trường hợp khiếu nại không đủ căn cứ và cần nhân viên quyết định.
+- **Người duyệt:** Nhân viên xử lý tranh chấp của sàn.
+- **Người duyệt thấy:** Mô tả sản phẩm lúc đặt, mô tả hiện tại, lịch sử thay đổi nếu có, bằng chứng và phản hồi của hai bên, lý do dự kiến từ chối.
+- **Quá hạn duyệt:** Không tự đóng khiếu nại. Hồ sơ được cảnh báo và chuyển trưởng nhóm; hai bên được thông báo đang chờ xét duyệt.
+
+#### Tool 5: `phat_shop` — Cấm
+
+- **Nếu sai:** Người bán có thể mất uy tín, doanh thu hoặc quyền kinh doanh dù chưa có kết luận chính xác (K4).
+- **Khả năng đảo ngược:** Khó khôi phục hoàn toàn uy tín và doanh thu đã mất.
+- **Nếu chờ người duyệt:** Việc xử lý gian hàng có thể chậm hơn, nhưng đây là nghiệp vụ ngoài phạm vi AI hỗ trợ khiếu nại sai mô tả.
+- **Phương án cân nhắc:** Tự làm, cần người duyệt hoặc cấm.
+- **Quyết định:** Chọn Cấm. Không chọn tự làm vì thiệt hại quá lớn. Không chọn cần người duyệt trong tính năng này vì xử phạt cần quy trình xác minh riêng của bộ phận chuyên trách.
+- **Luật bổ sung:** Khi có tố cáo hàng giả hoặc yêu cầu khóa shop, AI chỉ hướng dẫn gửi báo cáo hoặc chuyển bộ phận có thẩm quyền; không gọi `phat_shop` và không hứa sẽ xử phạt.
+
+### 4.3. Tool khó xếp mức tự chủ nhất
+
+**Tool được chọn: `soan_hoan_tien`.**
+
+Đây là tool khó xếp nhất vì phải cân bằng giữa tốc độ xử lý cho người mua và nguy cơ gây thiệt hại tài chính cho người bán.
+
+| Phương án | Lợi ích | Cái giá phải trả |
+|---|---|---|
+| Tự làm | Người mua được xử lý nhanh | K2: Người bán có thể mất tiền và hàng khi ảnh chưa được xác minh |
+| Cần người duyệt | Giảm nguy cơ quyết định thiếu căn cứ | Người mua phải chờ thêm; K8 có thể bị ảnh hưởng nếu quy trình quá chậm |
+| Cấm | Không có quyết định hoàn tiền sai do AI | AI không hỗ trợ được việc soạn đề xuất, nhân viên phải xử lý hồ sơ thủ công |
+
+**Quyết định của nhóm:** Chọn "Cần người duyệt".
+
+- AI được tổng hợp dữ liệu và soạn đề xuất.
+- Nhân viên kiểm tra thông tin gốc, bằng chứng và phản hồi của hai bên.
+- Chỉ nhân viên có thẩm quyền mới xác nhận quyết định hoàn tiền.
+- Nếu bằng chứng chưa được xác minh, không được chuyển đề xuất thành quyết định có hiệu lực.
+
+**Lập luận:** K2 cho thấy lời đe dọa và ảnh chưa liên kết với đơn có thể khiến AI thiên vị người mua. Tuy nhiên, cấm hoàn toàn việc soạn đề xuất sẽ làm mất lợi ích hỗ trợ nhân viên. Vì vậy, mức cần người duyệt cân bằng hai phía tốt hơn.
+
+**Ý kiến từng thành viên trước khi thống nhất** *(nhóm cần điền theo thảo luận thực tế, không tự tạo ý kiến)*:
+
+| Thành viên | Mức đề xuất ban đầu | Lý do |
+|---|---|---|
+| Nguyễn Gia Nam | Chưa điền | Chưa điền |
+| Thiều Thế Ngọc | Chưa điền | Chưa điền |
+| Đào Ngọc Hân | Chưa điền | Chưa điền |
+
+### 4.4. Kiểm thử mức tự chủ trên 3 kịch bản
+
+| Kịch bản | AI được làm gì? | Cái sai có bị chặn? | Còn việc nào phải hỏi? | Người dùng có chờ vô ích? |
+|---|---|---|---|---|
+| **K1 – Shop sửa mô tả** | Đối chiếu phiên bản, giữ khiếu nại mở, chuyển trưởng nhóm | Có. Không được tự từ chối bằng mô tả mới | Nhân viên phải xác minh lịch sử mô tả và phản hồi hai bên | Có thể chờ xác minh, nhưng cần thiết để tránh từ chối oan |
+| **K2 – Ảnh size M chưa gắn với đơn** | Yêu cầu gắn ảnh với mã đơn, ghi nhận ý kiến shop, chuyển người nếu còn mâu thuẫn | Có. Không được tự hoàn tiền theo lời đe dọa | Nhân viên duyệt nếu đề xuất hoàn tiền | Không phải chờ nhân viên ngay khi chỉ thiếu thao tác gắn ảnh |
+| **K9 – Shop xác nhận giao sai size** | Hướng dẫn người mua gửi yêu cầu trả hàng/hoàn tiền | Có. AI không tự thực thi hoàn tiền | Chỉ cần người duyệt ở bước quyết định tiền, không phải bước hướng dẫn | Không. AI tự hướng dẫn ngay mà không chuyển trưởng nhóm vô ích |
+
+**Kết luận kiểm thử thiết kế:**
+
+- K1: Chặn được nguy cơ từ chối oan bằng việc không cho AI tự quyết khi thiếu mô tả tại thời điểm đặt.
+- K2: Chặn được nguy cơ hoàn oan bằng cách xác minh liên kết ảnh và yêu cầu nhân viên duyệt.
+- K9: Không bắt người mua chờ nhân viên chỉ để được hướng dẫn quy trình.
+
+Đây là kết quả kiểm tra logic thiết kế. Cần tiếp tục xác nhận bằng thao tác thực tế trên prototype ở §5.
+
+### 4.5. Luật bổ sung và tách bước
+
+Nhóm bổ sung 4 luật để tránh việc AI có đúng mức tự chủ nhưng vẫn xử lý sai:
+
+**Luật 1 – Kiểm tra nguồn dữ liệu trước khi quyết định**
+
+- Phải ưu tiên mô tả sản phẩm tại thời điểm đặt hàng.
+- Nếu không truy xuất được dữ liệu gốc, không được coi mô tả hiện tại là bằng chứng thay thế.
+- Áp dụng cho K1, K7.
+
+**Luật 2 – Không yêu cầu bằng chứng lặp**
+
+- Kiểm tra các bằng chứng đã nhận trước khi gọi `yeu_cau_bang_chung`.
+- Chỉ yêu cầu đúng thông tin còn thiếu.
+- Cho phép sửa hoặc hủy yêu cầu đang chờ.
+- Áp dụng cho K6.
+
+**Luật 3 – Bảo vệ thời hạn khiếu nại**
+
+- Hiển thị thời hạn 7 ngày theo chính sách giả lập của nhóm.
+- Khi gần hết hạn, ưu tiên hướng dẫn người mua gửi yêu cầu hợp lệ qua quy trình chính thức và chuyển người nếu cần.
+- Không để việc chờ AI hoặc chờ duyệt tự động làm đóng hồ sơ.
+- Áp dụng cho K8.
+
+**Luật 4 – Tách đề xuất khỏi quyết định có hiệu lực**
+
+Quy trình:
+
+1. AI đọc hồ sơ và tổng hợp bằng chứng.
+2. AI soạn đề xuất hoàn tiền hoặc từ chối, kèm lý do.
+3. Nhân viên xem bằng chứng hai bên.
+4. Nhân viên chọn duyệt, yêu cầu bổ sung hoặc bác đề xuất.
+5. Chỉ sau phê duyệt hợp lệ, hệ thống mới được thực hiện quyết định thông qua quy trình có thẩm quyền.
+
+**Lý do:** Tool `soan_hoan_tien` chỉ nên tạo bản đề xuất, không đồng nghĩa tiền đã được chuyển. Tương tự, AI không được trực tiếp đóng khiếu nại bằng `tu_choi_khieu_nai` khi chưa có phê duyệt.
+
+### 4.6. Mức tự chủ thay đổi lời hứa với người dùng như thế nào?
+
+**Lời hứa ban đầu nếu AI được tự quyết:**
+
+> "AI sẽ tự giải quyết khiếu nại và hoàn tiền ngay khi phát hiện sản phẩm sai mô tả."
+
+**Lời hứa sau khi nhóm giới hạn mức tự chủ:**
+
+> "AI sẽ giúp bạn xác định bước tiếp theo, đối chiếu bằng chứng và chuẩn bị hồ sơ nhanh hơn. Những quyết định ảnh hưởng đến tiền hoặc quyền lợi của hai bên sẽ được nhân viên có thẩm quyền xem xét trước khi có hiệu lực."
+
+**Vì sao thay đổi:**
+
+- Không tạo kỳ vọng sai rằng AI có thể tự hoàn tiền ngay.
+- Người mua biết khi nào cần bổ sung thông tin và khi nào phải chờ xét duyệt.
+- Người bán được bảo vệ khỏi quyết định tài chính chỉ dựa trên bằng chứng một phía.
+- Sản phẩm ưu tiên quyết định có căn cứ, nhưng vẫn tự động hóa những thao tác có chi phí sai thấp.
+
+**Kết luận §4:** Nhóm chọn cho AI quyền tự thực hiện các thao tác hỗ trợ có thể sửa được, yêu cầu người duyệt với các quyết định ảnh hưởng đến tiền và quyền khiếu nại, đồng thời cấm hành động xử phạt gian hàng ngoài phạm vi. Mục tiêu là giảm thời gian thao tác mà không đánh đổi quyền lợi của người mua hoặc người bán.
 
 ## §5. Prototype (chặng 5)
 
