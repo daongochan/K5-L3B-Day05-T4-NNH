@@ -4,11 +4,11 @@
 
 | Họ và Tên | Mã Học Viên | Việc đã làm |
 |---|---|---|
-| Nguyễn Gia Nam | 2A202603761 | Chặng 1 — §1.1 lát cắt, §1.2 hôm nay vs AI được thêm quyền |
-| Thiều Thế Ngọc | 2A202603788 | Chặng 1 — §1.4 bốn việc không làm (N1–N4) |
-| Đào Ngọc Hân | 2A202603779 | Chặng 1 — §1.3 bảng hướng sai, §1.5 hàng rào phạm vi |
+| Nguyễn Gia Nam | 2A202603761 | **Chặng 1:** Lát cắt và quyền AI (§1.1–1.2).<br>**Chặng 2:** K1–K3 (mô tả thay đổi, ảnh chưa gắn đơn, thiếu thông tin).<br>**Chặng 3:** Kịch bản K1.<br>**Chặng 4:** Phân loại mức tự chủ, Tool 1–2, quy tắc tránh hỏi bằng chứng lặp và bảo vệ thời hạn (§4.1, §4.2, §4.5).<br>**Chặng 6:** Tiêu chí 1 trên K1/K2. |
+| Thiều Thế Ngọc | 2A202603788 | **Chặng 1:** Bốn việc tính năng không làm (N1–N4, §1.4).<br>**Chặng 2:** K4–K6 (tố cáo shop, yêu cầu thông tin riêng, hỏi lại ảnh đã gửi).<br>**Chặng 3:** Kịch bản K2.<br>**Chặng 4:** Tool 3–4, phân tích tool khó xếp nhất, quy tắc dùng dữ liệu gốc và lời hứa với người dùng (§4.2–4.3, §4.5–4.6).<br>**Chặng 6:** Tiêu chí 2 trên K1/K2. |
+| Đào Ngọc Hân | 2A202603779 | **Chặng 1:** Bảng hướng sai và checklist phạm vi prototype (§1.3, §1.5).<br>**Chặng 2:** K7–K9 và chọn K1/K2 làm tình huống rủi ro cao.<br>**Chặng 3:** Nguyên tắc HAX/PAIR cho K1/K2.<br>**Chặng 4:** Tool 5, kiểm thử K1/K2/K9 và quy tắc tách đề xuất khỏi quyết định (§4.2, §4.4–4.5).<br>**Chặng 6:** Tiêu chí 3 trên K1/K2. |
 
-> Mã học viên là căn cứ đối chiếu điểm. Phân công chặng 1 ghi theo gợi ý trong kế hoạch; nhóm đổi được khi chốt. Việc chặng 2–5 cập nhật vào cột này khi làm xong.
+> Mã học viên dùng để đối chiếu điểm. Chặng 5 (prototype) và demo chưa làm.
 
 ## §1. Lát cắt & phạm vi
 
