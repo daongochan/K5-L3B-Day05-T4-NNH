@@ -210,9 +210,13 @@ Nhóm thống nhất 3 mức tự chủ:
 
 | Thành viên | Mức đề xuất ban đầu | Lý do |
 |---|---|---|
-| Nguyễn Gia Nam | Chưa điền | Chưa điền |
-| Thiều Thế Ngọc | Chưa điền | Chưa điền |
-| Đào Ngọc Hân | Chưa điền | Chưa điền |
+| Nguyễn Gia Nam | Cần người duyệt | AI hỗ trợ tổng hợp bằng chứng nhưng không được tự quyết định hoàn tiền vì có nguy cơ gây thiệt hại cho người bán K2. |
+| Thiều Thế Ngọc | Tự làm | Với trường hợp đơn giản, hai bên đã xác nhận giao sai K9, tự động xử lý giúp giảm thời gian chờ. |
+| Đào Ngọc Hân | Cấm | Ảnh và bằng chứng có thể không xác minh được nguồn gốc; nếu quyết định sai sẽ gây thiệt hại tài chính khó khắc phục K2. |
+Quyết định cuối cùng của nhóm (đề xuất): CẦN NGƯỜI DUYỆT.
+- Không chọn Tự làm vì K2 cho thấy bằng chứng chưa xác minh có thể khiến người bán mất tiền và hàng.
+- Không chọn Cấm vì soan_hoan_tien vẫn hữu ích trong việc chuẩn bị đề xuất, tổng hợp dữ liệu và giảm tải cho nhân viên.
+- Chọn Cần người duyệt vì AI được hỗ trợ phân tích, còn nhân viên chịu trách nhiệm xác nhận quyết định có hiệu lực.
 
 ### 4.4. Kiểm thử mức tự chủ trên 3 kịch bản
 
