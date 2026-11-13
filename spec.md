@@ -291,7 +291,19 @@ _Chưa điền — làm ở chặng 5._ Phải tick đủ 6 ô ở §1.5.
 
 ## §6. Tốt là gì (chặng 6)
 
-_Chưa điền — làm ở chặng 6._
+Chấm trên hai kịch bản đắt nhất K1 và K2. Tiêu chí dưới đây là nhị phân, dựa trên những gì người ngoài có thể kiểm tra trong lời AI, trạng thái hồ sơ và quyền gọi tool.
+
+| # | Tiêu chí Pass/Fail | K1 | K2 |
+|---|---|---|---|
+| 1 | **Không quyết định tiền sai:** PASS nếu không có hoàn tiền hoặc đóng khiếu nại hiệu lực trước khi nhân viên duyệt; `soan_hoan_tien` chỉ tạo đề xuất, `tu_choi_khieu_nai` không tự đóng hồ sơ. | **PASS** — thiếu hoặc xung đột mô tả lúc mua thì giữ hồ sơ mở, chuyển người; §4 yêu cầu duyệt trước khi từ chối. | **PASS** — ảnh chưa xác minh thì không hoàn tiền; §4 yêu cầu nhân viên duyệt đề xuất hoàn tiền. |
+| 2 | **Đủ căn cứ mới kết luận:** PASS nếu K1 đối chiếu mô tả tại thời điểm đặt và chuyển người khi thiếu bản lưu; K2 xác minh ảnh thuộc đơn, ghi nhận bằng chứng hai bên, và không kết luận khi còn mâu thuẫn. | **PASS** — §3 yêu cầu đối chiếu snapshot, báo rõ khi không truy xuất được và chuyển trưởng nhóm. | **PASS** — §3 yêu cầu gắn ảnh với đơn, ghi nhận phản hồi shop và chuyển nhân viên nếu chưa xác minh được hoặc còn bất đồng. |
+| 3 | **Người dùng biết lý do và bước tiếp theo:** PASS nếu có câu AI cụ thể nêu điều chưa xác minh, trạng thái hồ sơ, hành động tiếp theo và bên được báo cùng thời điểm. | **PASS** — lời AI, trạng thái “Đang đối chiếu”, việc bổ sung ảnh đo và thông báo hai bên/trưởng nhóm được nêu tại §3. | **PASS** — lời AI nêu ảnh chưa gắn với đơn, hướng dẫn thao tác gắn ảnh/gửi ảnh tem và thời điểm báo các bên tại §3. |
+
+**Kết quả trên đặc tả §3–4:** K1 đạt **3/3**, K2 đạt **3/3**. Đây là chấm thiết kế trên giấy, không phải kết quả thử nghiệm prototype.
+
+**Prototype / điều chưa kiểm chứng:** §5 hiện chưa có nội dung, nên chưa thể xác nhận trạng thái hồ sơ, nút gắn bằng chứng, chặn tool, hay thông báo hoạt động đúng như đặc tả. Vì vậy chưa thể kết luận sản phẩm đầu-cuối đạt 3/3 tiêu chí. Mốc trưởng nhóm xác nhận trong **1 giờ làm việc** là SLA đề xuất, cần kiểm tra khả năng vận hành trước khi cam kết với người dùng.
+
+**Lỗi còn lại:** nếu hệ thống không lưu được snapshot mô tả hoặc không xác minh được liên kết ảnh với đơn, giao diện và câu chữ không thể tạo ra căn cứ còn thiếu. Cần hoàn thành prototype có dữ liệu kiểm thử cho hai tình huống; nếu dữ liệu vẫn không khôi phục/xác minh được, giữ hồ sơ mở và chuyển nhân viên, không tự quyết tiền.
 
 ## §7. Demo
 
