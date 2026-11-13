@@ -9,7 +9,7 @@
 .approvalSteps li.pending{color:#916018}
 .approvalSteps p{margin:8px 0}
 
-/* Gemini-backed chat demo (same-origin backend). */
+/* Bảng trò chuyện chạy bằng luật offline; không có backend. */
 .livePanel{border:2px solid #ffd4c2}.chatHeader{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}.chatHeader h4{margin:0 0 5px}.chatHeader p{margin:0 0 9px}.modeBadge{white-space:nowrap;border-radius:20px;background:#ebf6ed;color:#216e3f;padding:6px 9px;font-size:11px;font-weight:700}.chatHistory{background:#f6f7f9;border-radius:8px;border:1px solid #eceff2;min-height:115px;max-height:275px;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:9px}.chatEmpty{padding:22px;color:#767676;font-size:13px;text-align:center}.chatLine{max-width:90%;border:1px solid #e2e3e6;background:#fff;border-radius:12px;padding:10px 12px;line-height:1.55;font-size:13px;white-space:pre-wrap}.chatLine.mine{align-self:flex-end;background:#fff0e9;border-color:#f7cdbd}.chatLine.assistant{align-self:flex-start}.chatWho{font-weight:700;font-size:11px;color:#a24a20;margin-bottom:5px}.chatDecision{border-top:1px dashed #d4d4d4;margin-top:9px;padding-top:7px;font-size:12px;color:#374151}.chatDecision small{color:#777}.chatForm{margin-top:10px}.chatForm textarea{width:100%;padding:12px;border:1px solid #d6d6d6;border-radius:7px;font:inherit;resize:vertical;min-height:67px}.chatForm .buttonRow{justify-content:flex-end}.chatForm button[type=submit]{min-width:140px}@media(max-width:680px){.chatHeader{flex-direction:column}.chatLine{max-width:96%}}
 
 </style></head><body>
@@ -17,10 +17,10 @@
 <header class="header"><div class="mini container"><span>Kênh Người Bán　│　Trở thành Người bán Shopee　│　Tải ứng dụng　│　Kết nối ● ◎</span><span>♧ Thông Báo　ⓘ Hỗ Trợ　◎ Tiếng Việt　│　Đăng Ký　│　Đăng Nhập</span></div><div class="searchbar container"><div class="logo"><div class="bag">S</div><span>Shopee</span><small>LAB DEMO</small></div><div class="searchwrap"><div class="search"><input placeholder="Shopee bao ship 0Đ - Đăng ký ngay!" aria-label="Tìm sản phẩm"><button id="searchButton" aria-label="Tìm kiếm">⌕</button></div><p>Áo Kiểu Nữ　 Bình Nước Giữ Nhiệt　 Quần Bò Suông Ống Rộng Nữ　 Áo Tay Dài　 Gấu Bông 2m　 Bàn Phím Không Dây Bluetooth</p></div><button class="cart" title="Giỏ hàng mô phỏng">🛒</button></div></header>
 <main class="container"><nav class="categories"><span>Thời Trang Nữ</span><span>Mẹ & Bé</span><span>Nhà Cửa & Đời Sống</span><span>Sắc Đẹp</span><span>Sức Khỏe</span><span>Giày Dép Nữ</span><span>Túi Ví Nữ</span><span>Phụ Kiện & Trang Sức Nữ</span><span>Bách Hóa Online</span><span>Nhà Sách Online</span></nav>
 <section class="sales"><div class="sectionhead"><strong>⚡ FLASH SALE</strong><span class="clock">01 06 46</span><button class="textbutton" id="allProducts">Xem tất cả ›</button></div><div class="products" id="products"></div></section>
-<section class="mall"><strong>SHOPEE MALL</strong><span>↩ Trả Hàng Miễn Phí 15 Ngày</span><span>◆ Hàng Chính Hãng 100%</span><span>🚚 Miễn Phí Vận Chuyển</span><button class="textbutton" id="mallButton">Xem Tất Cả ›</button></section>
+<section class="mall"><strong>SHOPEE MALL</strong><span>↩ Trả Hàng Trong 7 Ngày · bản giả lập</span><span>◆ Hàng Chính Hãng 100%</span><span>🚚 Miễn Phí Vận Chuyển</span><button class="textbutton" id="mallButton">Xem Tất Cả ›</button></section>
 <section class="supportPromo"><div><small>TRỢ LÝ HỖ TRỢ ĐƠN HÀNG</small><h2>Nhận hàng không đúng mô tả?</h2><p>Thử quy trình AI đọc bằng chứng, yêu cầu bổ sung hoặc chuyển nhân viên — công bằng cho cả hai bên.</p></div><button id="openSupportInline" class="primary">Trò chuyện với AI ↗</button></section></main>
 <button class="floating" id="openSupport"><span>💬</span> Trò chuyện với AI <small>LAB DEMO</small></button>
-<div class="overlay hidden" id="overlay"><section class="dialog" role="dialog" aria-modal="true" aria-labelledby="dialogTitle"><div class="dialogHeader"><div><small>MÔ PHỎNG · KHÔNG KẾT NỐI SHOPEE</small><h2 id="dialogTitle">Trò chuyện với AI · Khiếu nại sai mô tả</h2></div><button class="close" id="closeSupport" aria-label="Đóng">×</button></div><div class="dialogTabs"><button data-role="buyer" class="role active">🛍 Người mua</button><button data-role="seller" class="role">🏪 Người bán</button><button data-role="staff" class="role">🧑‍💼 Nhân viên sàn</button></div><div class="dialogBody"><aside class="casebar"><b>Chọn ca kiểm thử</b><button class="scenario selected" data-case="K1">K1 · Shop sửa mô tả<span>Thiếu nguồn sự thật gốc</span></button><button class="scenario" data-case="K2">K2 · Ảnh sai size<span>Chưa liên kết ảnh với đơn</span></button><button class="scenario" data-case="K9">K9 · Shop nhận giao sai<span>Ca thông thường</span></button><button class="scenario" data-case="K4">K4 · Yêu cầu khóa shop<span>Hành động bị cấm</span></button><div class="policy"><b>Chính sách GIẢ LẬP</b><p>Hạn yêu cầu 7 ngày từ lúc giao; người bán phản hồi 48 giờ. Không phải chính sách Shopee thực.</p></div></aside><div class="workspace"><div class="casehead"><div><small id="orderId"></small><h3 id="caseTitle"></h3></div><span class="status" id="status"></span></div><div class="deadline"><span>⏱ Hạn gửi yêu cầu: <b id="deadline"></b></span><span>Phản hồi người bán: <b>48 giờ (giả lập)</b></span></div><div id="view"></div><div class="audit"><b>Nhật ký thao tác mô phỏng</b><ol id="auditLog"></ol></div></div></div><div class="dialogFoot"><span>Demo học tập · Trả lời theo quy tắc offline · Không kết nối Shopee hoặc Gemini · Không dùng dữ liệu khách thật</span><button id="reset" class="ghost">↻ Đặt lại tình huống</button></div></section></div>
+<div class="overlay hidden" id="overlay"><section class="dialog" role="dialog" aria-modal="true" aria-labelledby="dialogTitle"><div class="dialogHeader"><div><small>MÔ PHỎNG · KHÔNG KẾT NỐI SHOPEE</small><h2 id="dialogTitle">Trò chuyện với AI · Khiếu nại sai mô tả</h2></div><button class="close" id="closeSupport" aria-label="Đóng">×</button></div><div class="dialogTabs"><button data-role="buyer" class="role active">🛍 Người mua</button><button data-role="seller" class="role">🏪 Người bán</button><button data-role="staff" class="role">🧑‍💼 Nhân viên sàn</button></div><div class="dialogBody"><aside class="casebar"><b>Chọn ca kiểm thử</b><button class="scenario selected" data-case="K1">K1 · Shop sửa mô tả<span>Thiếu nguồn sự thật gốc</span></button><button class="scenario" data-case="K2">K2 · Ảnh sai size<span>Chưa liên kết ảnh với đơn</span></button><button class="scenario" data-case="K9">K9 · Shop nhận giao sai<span>Ca thông thường</span></button><button class="scenario" data-case="K4">K4 · Yêu cầu khóa shop<span>Hành động bị cấm</span></button><div class="policy"><b>Chính sách GIẢ LẬP</b><p>Hạn yêu cầu 7 ngày từ lúc giao; người bán phản hồi 48 giờ. Không phải chính sách Shopee thực.</p></div></aside><div class="workspace"><div class="casehead"><div><small id="orderId"></small><h3 id="caseTitle"></h3></div><span class="status" id="status"></span></div><div class="deadline"><span>⏱ Hạn gửi yêu cầu: <b id="deadline"></b></span><span>Phản hồi người bán: <b>48 giờ (giả lập)</b></span></div><div id="view"></div><div class="audit"><b>Nhật ký thao tác mô phỏng</b><ol id="auditLog"></ol></div></div></div><div class="dialogFoot"><span>Demo học tập · Trả lời bằng luật offline · Không kết nối Shopee hay mô hình AI · Không dùng dữ liệu khách thật</span><button id="reset" class="ghost">↻ Đặt lại tình huống</button></div></section></div>
 <div class="toast hidden" id="toast" role="status"></div><script>
 'use strict';
 const $=(s)=>document.querySelector(s), $$=(s)=>[...document.querySelectorAll(s)];
@@ -31,7 +31,6 @@ const cases={
  K4:{title:'Yêu cầu khóa shop vì nghi hàng giả',order:'#NNH-2404',left:3,complaint:'Shop bán giả, khóa shop này ngay!',buy:'Đơn hàng đã chọn',now:'Không có kết luận xác minh hàng giả',photo:'Chưa có kết quả kiểm tra chuyên môn',seller:'Chưa phản hồi',ai:'Mình không thể khóa hay phạt gian hàng dựa trên một lời tố cáo. Mình có thể hướng dẫn bạn gửi báo cáo đến bộ phận chuyên trách. Khiếu nại sai mô tả vẫn được tiếp nhận theo quy trình riêng.'}
 };
 let current='K1', role='buyer', state={};
-let serverMode='demo'; let isThinking=false;
 function resetState(){state={buyerSubmitted:false,linked:false,requested:false,sellerReplied:false,escalated:false,staffReviewed:false,proposal:false,approved:false,decision:'',notes:['Đã mở hồ sơ mô phỏng. Chưa phát sinh quyết định tài chính.'],chat:[]};}
 function log(note){state.notes.unshift(note);render();}
 function toast(s){$('#toast').textContent=s;$('#toast').classList.remove('hidden');clearTimeout(window._toastTimer);window._toastTimer=setTimeout(()=>$('#toast').classList.add('hidden'),3300);}
@@ -42,40 +41,118 @@ function buyerView(){const c=cases[current];let buttons='';if(current==='K1'){bu
 return `<div class="panel"><h4>💬 Tin nhắn người mua</h4><div class="quote">“${c.complaint}”</div></div><div class="panel"><h4>🤖 Trợ lý AI phản hồi</h4><div class="quote">“${c.ai}”</div>${badges()}<div class="blocker">🔒 Chặn tự hoàn tiền / tự từ chối / phạt shop. ${current==='K4'?'Không có quyền xử phạt gian hàng.':'Kết luận tài chính cần nhân viên duyệt.'}</div></div><div class="panel"><h4>📎 Bằng chứng có thể kiểm tra</h4>${evidences()}<div class="buttonRow">${buttons}</div>${state.buyerSubmitted?'<div class="good">Đã gửi yêu cầu mô phỏng, hồ sơ vẫn mở. Không phát sinh hoàn tiền.</div>':''}${state.escalated?'<div class="good">✓ Hồ sơ đã chuyển đúng tuyến (mô phỏng). Người mua đã được thông báo.</div>':''}${state.requested?'<div class="good">✓ Yêu cầu bổ sung đang chờ. Có thể hủy, không hỏi trùng.</div>':''}</div>${liveChatView()}`;}
 
 function liveChatView(){
- const history=(state.chat||[]).map(m=>`<div class="chatLine ${m.who==='user'?'mine':'assistant'}"><div class="chatWho">${m.who==='user'?'🛍 Bạn':'🤖 AI '+(m.mode==='live'?'· API thật':m.mode==='fallback'?'· luật offline':'· mô phỏng offline')}</div><div>${escapeHtml(m.text)}</div>${m.route?`<div class="chatDecision"><b>Hướng:</b> ${escapeHtml(routeLabel(m.route))}<br><b>Vì sao:</b> ${escapeHtml(m.why||'')}<br><small>Mã log: ${escapeHtml(m.proof_id||'')}</small></div>`:''}</div>`).join('');
- return `<section class="panel livePanel"><div class="chatHeader"><div><h4>💬 Trợ lý mô phỏng · Phân loại hướng xử lý</h4><p class="muted">Phản hồi theo quy tắc tình huống cố định; không kết nối Gemini. Không thể hoàn tiền, từ chối hoặc phạt shop.</p></div><span class="modeBadge" id="apiMode">${serverMode==='live'?'● Có Gemini API':serverMode==='demo'?'○ Chế độ demo offline':serverMode==='fallback'?'! Không kết nối API':'Đang kiểm tra...'}</span></div><div class="chatHistory" aria-live="polite">${history||'<div class="chatEmpty">Bạn có thể nhập khiếu nại hoặc chọn tin mẫu. Hệ thống trả lời theo quy tắc của ca đang chọn, không dùng mô hình AI thật.</div>'}${isThinking?'<div class="chatLine assistant">AI đang phân tích hồ sơ…</div>':''}</div><form id="realChatForm" class="chatForm"><textarea id="chatMessage" maxlength="850" rows="2" placeholder="Ví dụ: Tôi nhận nồi 5 lít, shop sửa mô tả..." aria-label="Nhập tin khiếu nại" ${isThinking?'disabled':''}></textarea><div class="buttonRow"><button class="action" type="button" id="useSample">Dùng tin mẫu</button><button class="action primaryAction" type="submit" ${isThinking?'disabled':''}>${isThinking?'Đang gửi…':'Gửi cho AI →'}</button></div></form><div class="muted">Mã log chỉ ghi nhận thao tác mô phỏng, KHÔNG chứng minh cuộc gọi AI thật hoặc đáp ứng bonus API. Chỉ dùng dữ liệu giả lập. Không nhập số điện thoại, địa chỉ hoặc thông tin đơn thật.</div></section>`;
+ const history=(state.chat||[]).map(m=>`<div class="chatLine ${m.who==='user'?'mine':'assistant'}"><div class="chatWho">${m.who==='user'?'🛍 Bạn':'🤖 AI · luật offline'}</div><div>${escapeHtml(m.text)}</div>${m.route?`<div class="chatDecision"><b>Hướng:</b> ${escapeHtml(routeLabel(m.route))}<br><b>Vì sao:</b> ${escapeHtml(m.why||'')}<br><small>Mã log: ${escapeHtml(m.proof_id||'')}</small></div>`:''}</div>`).join('');
+ return `<section class="panel livePanel"><div class="chatHeader"><div><h4>💬 Trợ lý mô phỏng · Phân loại hướng xử lý</h4><p class="muted">Trả lời bằng luật so khớp nội dung tin nhắn, chạy ngay trong trình duyệt — không gọi mô hình AI. Không thể hoàn tiền, từ chối hay phạt shop.</p></div><span class="modeBadge">○ Luật offline · không gọi API</span></div><div class="chatHistory" aria-live="polite">${history||'<div class="chatEmpty">Nhập tin khiếu nại hoặc bấm “Dùng tin mẫu”. Hệ thống phân loại theo nội dung tin bạn gõ, không theo ca đang chọn — thử một ca lạ để xem nó đi đường nào.</div>'}</div><form id="realChatForm" class="chatForm"><textarea id="chatMessage" maxlength="850" rows="2" placeholder="Ví dụ: Tôi nhận nồi 5 lít, shop sửa mô tả..." aria-label="Nhập tin khiếu nại"></textarea><div class="buttonRow"><button class="action" type="button" id="useSample">Dùng tin mẫu</button><button class="action primaryAction" type="submit">Gửi →</button></div></form><div class="muted">Mã log ghi nhận luật đã khớp, không phải kết quả của mô hình AI. Chỉ dùng dữ liệu giả lập; đừng nhập số điện thoại, địa chỉ hay thông tin đơn thật.</div></section>`;
 }
 function routeLabel(route){return ({'huong_dan_gui_yeu_cau':'Hướng dẫn người mua gửi yêu cầu', 'yeu_cau_bang_chung':'Xin thêm bằng chứng (tự làm)', 'chuyen_nhan_vien':'Chuyển nhân viên / trưởng nhóm (tự làm)'})[route]||'Chưa xác định';}
-function checkBackend(){serverMode='demo';if(role==='buyer')render();}
+
+/* Bộ luật offline: đọc nội dung tin, không dựa vào ca đang chọn.
+   Đây là chỗ duy nhất quyết định hướng đi, nên ca lạ cũng phải rơi vào một nhánh có thật. */
+function phanLoai(tin,da=state){
+ const t=tin.toLowerCase();
+ const co=(...ks)=>ks.some(k=>t.includes(k));
+ const maDon=/#?nnh-?\d{3,}/.test(t)||co('mã đơn','ma don','đơn hàng số','đơn số');
+ const coAnh=co('ảnh','hình','hinh','chụp');
+ const doa=co('bóc phốt','boc phot','đăng bài','dang bai','tố cáo','review 1 sao','lên mạng');
+ const saiMo=co('không đúng mô tả','khong dung mo ta','sai mô tả','mô tả','mo ta','ghi 6 lít','ghi 5 lít','dung tích','size','sai hàng','giao nhầm','giao sai','khác với','khong giong','không giống');
+ const giaoNham=co('giao nhầm','giao sai','nhận sai','shop nhận','shop xác nhận','shop thừa nhận','đổi trả','trả hàng','hoàn tiền');
+
+ // ③ Ngoài thẩm quyền — chặn trước, không để lời đe doạ hay yêu cầu PII lái kết quả.
+ if(co('số điện thoại','so dien thoai','sđt','địa chỉ','dia chi','thông tin riêng','thong tin rieng','thông tin cá nhân','chủ shop','cmnd','cccd','tài khoản ngân hàng')){
+  return {route:'chuyen_nhan_vien',ten:'Yêu cầu thông tin cá nhân',
+   why:'Bộ tool T4 không có quyền cung cấp dữ liệu cá nhân của bên kia, và chuyển thông tin liên hệ giữa hai bên là việc bị cấm.',
+   reply:'Mình không thể đưa số điện thoại hay địa chỉ riêng của người bán cho bạn, kể cả khi bạn có lý do chính đáng. Thông tin hai bên chỉ trao đổi qua hệ thống. Nếu việc cần xử lý gấp, mình chuyển hồ sơ cho nhân viên sàn để họ liên hệ đúng kênh.'};
+ }
+ if(co('khóa shop','khoá shop','khóa gian hàng','phạt shop','phat shop','hàng giả','hang gia','hàng nhái','hàng fake','bán giả')){
+  return {route:'chuyen_nhan_vien',ten:'Tố cáo hàng giả / đòi xử phạt shop',
+   why:'Xử phạt và khoá gian hàng nằm ngoài luồng khiếu nại sai mô tả; AI không có tool này và cũng không được hứa kết quả xử phạt.',
+   reply:'Mình không có quyền khoá hay trừ điểm gian hàng, và cũng không hứa trước kết quả xử lý. Mình chuyển nội dung bạn nêu sang bộ phận chuyên trách để họ thẩm định. Nếu đơn hàng của bạn cũng sai mô tả, phần đó vẫn được xử lý theo luồng trả hàng riêng — bạn không cần chờ kết luận hàng giả mới được gửi yêu cầu.'};
+ }
+ if(co('đổi hàng','doi hang','đổi đơn','doi don','bồi thường','boi thuong','đền','hoàn tiền mặt','chuyển khoản')){
+  return {route:'chuyen_nhan_vien',ten:'Đòi việc ngoài ba đường của lát cắt',
+   why:'Không có tool đổi hàng, đổi đơn hay bồi thường trong bảng tool T4. Hứa những việc này là lỗi "hứa việc mình không làm được".',
+   reply:'Trong phạm vi mình xử lý chỉ có ba đường: hướng dẫn bạn gửi yêu cầu trả hàng/hoàn tiền, xin thêm bằng chứng, hoặc chuyển nhân viên. Đổi hàng hay bồi thường thì mình không có công cụ để làm và không muốn hứa suông. Mình chuyển hồ sơ sang nhân viên để họ nói rõ trường hợp của bạn được áp dụng chính sách nào.'};
+ }
+
+ // ② Người mua hỏi tại sao bị đòi lại ảnh đã gửi
+ if(co('gửi ảnh từ','đã gửi ảnh','sao lại yêu cầu','hỏi lại','gửi lần nữa','gửi lại ảnh','gửi từ sáng')){
+  return {route:'yeu_cau_bang_chung',ten:'Đã gửi ảnh nhưng bị hỏi lại',
+   why:'Hệ thống đang không hiển thị danh sách chứng cứ đã nhận, nên lần hỏi sau trùng với lần trước.',
+   reply:'Bạn đã gửi ảnh rồi, mình xác nhận có nhận. Lỗi là ở chỗ màn hình chưa hiện danh sách ảnh đã nhận nên mình hỏi trùng. Mình đã ghi nhận phần bạn đã gửi; nếu cần bổ sung, mình chỉ hỏi đúng mục còn thiếu chứ không bắt gửi lại toàn bộ. Bạn cũng có thể hủy yêu cầu bổ sung đang chờ nếu thấy không cần.'};
+ }
+
+ // ② Đã có hai phía nhất quán — xét trước nhánh ảnh, vì ca này cũng nhắc tới size/tem.
+ if(co('shop xác nhận','shop thừa nhận','shop nhận','shop đã nhận','giao nhầm','gửi nhầm','giao sai','gửi sai','nhận sai size','bảo gửi trả','đồng ý trả hàng')){
+  return {route:'huong_dan_gui_yeu_cau',ten:'Shop đã nhận giao sai',
+   why:'Hai bên đã nhất quán nên chỉ cần hướng dẫn thủ tục; việc hoàn tiền vẫn phải qua người duyệt.',
+   reply:'Shop đã xác nhận giao nhầm nên bạn không phải chờ mình xác minh nữa. Bạn vào Đơn mua, chọn đơn này, gửi yêu cầu trả hàng/hoàn tiền và chọn lý do sai mô tả. Mình chỉ hướng dẫn thao tác; phần chuyển tiền do nhân viên sàn duyệt theo bằng chứng hai bên.'};
+ }
+
+ // ② Thiếu nguồn sự thật gốc
+ if(co('shop sửa mô tả','sửa mô tả','sua mo ta','đổi mô tả','xóa mô tả','xoá mô tả','mô tả cũ','mô tả lúc đặt','bản lưu')){
+  return {route:'chuyen_nhan_vien',ten:'Mô tả hiện tại khác mô tả lúc đặt',
+   why:'Không có bản mô tả đã lưu tại thời điểm đặt hàng thì mô tả hiện tại không thay thế được. Kết luận lúc này là đoán.',
+   reply:'Mình thấy mô tả bên shop bây giờ khác với những gì bạn nhớ lúc đặt, nhưng hệ thống chưa xuất trình được bản mô tả đã lưu tại thời điểm bạn mua. Mình chưa thể kết luận khiếu nại đúng hay sai. Hồ sơ được giữ mở và chuyển nhân viên đối chiếu lịch sử mô tả; bạn không phải khai lại mã đơn.'};
+ }
+
+ // ② Tin cụt, thiếu đơn hoặc thiếu điểm sai
+ const ngan=t.length<28&&!maDon;
+ if(ngan&&!coAnh){
+  return {route:'yeu_cau_bang_chung',ten:'Tin thiếu thông tin',
+   why:'Tin không nêu mã đơn và không nêu điểm sai cụ thể, nên AI chỉ nên hỏi đúng một lượt thay vì đoán đơn nào.',
+   reply:'Mình cần thêm đúng hai thứ để mở hồ sơ: mã đơn trong mục Đơn mua, và điểm bạn thấy sai so với mô tả (ví dụ dung tích, size, màu). Bạn gửi một câu là đủ, không cần chụp lại toàn bộ.'};
+ }
+
+ // ④ Sát hạn trả hàng
+ if(co('ngày cuối','ngay cuoi','hết hạn','het han','quá hạn','sắp hết','còn mấy ngày','deadline')){
+  return {route:'huong_dan_gui_yeu_cau',ten:'Ca sát hạn trả hàng',
+   why:'Chờ thêm có thể làm mất quyền trả hàng, nên ưu tiên hướng dẫn gửi yêu cầu ngay trong luồng chính thức thay vì hỏi thêm.',
+   reply:'Nếu bạn còn trong hạn trả hàng thì nên gửi yêu cầu ngay, đừng chờ mình làm rõ thêm. Bạn vào Đơn mua, chọn đơn đó, chọn lý do "hàng không đúng mô tả", đính ảnh đang có rồi bấm gửi. Phần quyết định tiền sẽ do nhân viên sàn xét, nhưng thời điểm gửi là do bạn giữ — mình chuyển kèm ghi chú ưu tiên sang nhân viên.'};
+ }
+
+ // ② Ảnh / tem / size chưa gắn được với đơn
+ if(coAnh||co('size','tem','đóng gói','dong goi')){
+  if(da.linked){
+   return {route:'chuyen_nhan_vien',ten:'Ảnh đã gắn đơn nhưng chưa xác thực nội dung',
+    why:'Gắn ảnh với mã đơn chỉ giải quyết phần liên kết; nội dung ảnh vẫn chưa được kiểm chứng nên chưa đủ căn cứ kết luận.',
+    reply:'Mình ghi nhận ảnh đã được gắn với đơn này. Nhưng ảnh gắn đúng đơn không có nghĩa là nội dung trong ảnh đã được xác thực, nên mình vẫn chưa thể kết luận. Hồ sơ chuyển nhân viên kiểm chứng cùng phản hồi của shop; bạn không phải gửi lại ảnh.'};
+  }
+  return {route:'yeu_cau_bang_chung',ten:'Ảnh chưa liên kết được với đơn',
+   why:'Ảnh không gắn được với mã đơn thì không đối chiếu được với hàng đã giao; đây là chỗ AI dễ hoàn oan nếu nghe theo lời đe doạ.',
+   reply:'Mình đã nhận ảnh bạn gửi nhưng chưa xác minh được ảnh này thuộc đơn nào. Đơn hàng và tem đóng gói bên shop đang ghi thông tin khác với ảnh. Bạn giúp mình một việc: gắn ảnh với mã đơn hoặc chụp thêm tem sản phẩm cạnh mã đơn. '+(doa?'Lời nhắn về việc đăng bài không được tính là bằng chứng, nên mình chỉ dựa vào ảnh đối chiếu được.':'Mình chỉ dựa vào ảnh đối chiếu được, không dựa vào lời nói một phía.')};
+ }
+
+ // ④ Đòi hoàn ngay, chưa có căn cứ
+ if(co('hoàn ngay','hoan ngay','hoàn tiền ngay','trả tiền lại','refund')){
+  return {route:'chuyen_nhan_vien',ten:'Đòi hoàn tiền ngay khi chưa đủ căn cứ',
+   why:'Hoàn tiền là quyết định tiền, khó đảo. AI chỉ được soạn đề xuất, không được tự thực thi.',
+   reply:'Mình hiểu bạn muốn xử lý nhanh, nhưng mình không có quyền bấm hoàn tiền và cũng không muốn hứa điều mình không làm được. Mình tổng hợp hồ sơ và soạn đề xuất để nhân viên sàn xem bằng chứng hai bên trước khi có quyết định. Nếu bạn còn trong hạn trả hàng, cứ gửi yêu cầu ngay để không mất mốc thời gian.'};
+ }
+
+ if(saiMo&&giaoNham){
+  return {route:'huong_dan_gui_yeu_cau',ten:'Hàng không đúng mô tả, chưa có mâu thuẫn',
+   why:'Thông tin hiện có đủ để hướng dẫn thủ tục, nhưng chưa đủ để AI kết luận ai đúng.',
+   reply:'Trường hợp này đi theo luồng trả hàng/hoàn tiền được. Bạn vào Đơn mua, chọn đúng đơn, chọn lý do "hàng không đúng mô tả", đính ảnh tem hoặc ảnh sản phẩm rồi gửi yêu cầu. Mình hướng dẫn thao tác, còn quyết định tiền do nhân viên sàn xét sau khi nghe cả shop.'};
+ }
+
+ // Mặc định: chưa đủ để đi đường nào khác, hỏi đúng một việc
+ return {route:'yeu_cau_bang_chung',ten:'Chưa đủ căn cứ phân loại',
+  why:'Nội dung chưa khớp luật nào đủ chắc, nên chọn cách hỏi thêm thay vì đoán hướng xử lý.',
+  reply:'Mình chưa đủ căn cứ để chọn hướng xử lý cho trường hợp này. Bạn nói giúp mình một việc: đơn nào, và bạn thấy sai ở điểm nào so với mô tả lúc đặt? Có hai thông tin đó là mình phân loại được ngay.'};
+}
+
 function submitLiveChat(msg){
- if(isThinking)return;
  if(!msg||msg.trim().length<2){toast('Hãy nhập nội dung khiếu nại trước.');return;}
  const question=msg.trim();
- let route,why,reply;
- if(current==='K1'){
-   route='chuyen_nhan_vien';
-   why='Thiếu bản mô tả đã lưu tại thời điểm mua, không thể dùng mô tả hiện tại làm căn cứ kết luận.';
-   reply=cases.K1.ai+' Bước tiếp theo: bạn bấm “Gửi yêu cầu khiếu nại”, bổ sung ảnh dung tích nếu có, sau đó chọn “Chuyển nhân viên đối chiếu”.';
- }else if(current==='K2'){
-   route=state.linked?'chuyen_nhan_vien':'yeu_cau_bang_chung';
-   why=state.linked?'Ảnh đã gắn với đơn nhưng vẫn thiếu xác minh về nội dung.':'Ảnh size M chưa được liên kết với đơn; lời đe dọa không thay thế bằng chứng.';
-   reply=state.linked?'Đã ghi nhận ảnh gắn mã đơn, nhưng chưa thể xác thực ảnh phản ánh hàng thực nhận. Mình sẽ đề xuất chuyển nhân viên kiểm tra bằng chứng hai phía.':cases.K2.ai;
- }else if(current==='K9'){
-   route='huong_dan_gui_yeu_cau';
-   why='Người bán đã thừa nhận giao sai nên có thể hướng dẫn thủ tục; quyết định tiền vẫn cần người duyệt.';
-   reply=cases.K9.ai+' Bước tiếp theo: nhấn “Gửi yêu cầu trả hàng/hoàn tiền”, rồi theo dõi phản hồi shop và xét duyệt của nhân viên.';
- }else{
-   route='chuyen_nhan_vien';
-   why='Yêu cầu xử phạt vượt thẩm quyền, không đủ căn cứ xác minh vi phạm.';
-   reply=cases.K4.ai;
- }
+ const kq=phanLoai(question);
  state.chat.push({who:'user',text:question});
- const proof='MOCK-'+current+'-'+String(state.chat.length).padStart(3,'0');
- state.chat.push({who:'assistant',text:reply,mode:'demo',route,why,proof_id:proof});
- state.notes.unshift('Mô phỏng (không gọi AI): '+routeLabel(route)+' · '+proof);
+ const proof='OFFLINE-'+current+'-'+String(state.chat.length).padStart(3,'0');
+ state.chat.push({who:'assistant',text:kq.reply,route:kq.route,why:kq.why,proof_id:proof});
+ state.notes.unshift('Luật offline khớp "'+kq.ten+'" → '+routeLabel(kq.route)+' · '+proof);
  // Không tự thực thi nghiệp vụ; chỉ các nút được người dùng bấm mới thay đổi trạng thái.
  render();
 }
+
 
 function sellerView(){let condition=current==='K9';return `<div class="panel"><h4>🏪 Thông báo khiếu nại cho người bán</h4><p>Đơn <b>${cases[current].order}</b> · Còn <b>48 giờ</b> phản hồi (chính sách giả lập).</p>${evidences()}<div class="quote">Người bán có quyền gửi phản hồi trước khi một quyết định tài chính có hiệu lực. Lời đe dọa bóc phốt không được tính làm chứng cứ.</div><div class="buttonRow">${btn(state.sellerReplied?'✓ Đã gửi phản hồi':'Gửi phản hồi và xác nhận đã xem hồ sơ','seller','primaryAction',state.sellerReplied)}${btn('Chuyển khiếu nại phức tạp','escalate','',state.escalated)}</div>${state.sellerReplied?'<div class="good">Phản hồi đã được lưu vào hồ sơ mô phỏng.</div>':''}</div>`;}
 function staffView(){
@@ -96,6 +173,5 @@ $$('#openSupport, #openSupportInline').forEach(b=>b.addEventListener('click',ope
 
 $('#view').addEventListener('submit',e=>{if(e.target.id==='realChatForm'){e.preventDefault();submitLiveChat($('#chatMessage').value);}});
 $('#view').addEventListener('click',e=>{if(e.target.id==='useSample'){$('#chatMessage').value=cases[current].complaint;$('#chatMessage').focus();}});
-checkBackend();
 
 </script></body></html>

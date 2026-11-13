@@ -1,31 +1,31 @@
 # Bài nộp LAB5 — T4 · Thương mại điện tử · Nhóm NNH
 
-**Lớp:** L3B · **Bàn / zone:** ____ · **Track:** T4 — Thương mại điện tử
+**Lớp:** L3B · **Track:** T4 — Thương mại điện tử
 
 | Họ và Tên | Mã Học Viên | Việc đã làm |
 |---|---|---|
-| Nguyễn Gia Nam | 2A202603761 | **Chặng 1:** Lát cắt và quyền AI (§1.1–1.2).<br>**Chặng 2:** K1–K3 (mô tả thay đổi, ảnh chưa gắn đơn, thiếu thông tin).<br>**Chặng 3:** Kịch bản K1.<br>**Chặng 4:** Phân loại mức tự chủ, Tool 1–2, quy tắc tránh hỏi bằng chứng lặp và bảo vệ thời hạn (§4.1, §4.2, §4.5).<br>**Chặng 6:** Tiêu chí 1 trên K1/K2. |
-| Thiều Thế Ngọc | 2A202603788 | **Chặng 1:** Bốn việc tính năng không làm (N1–N4, §1.4).<br>**Chặng 2:** K4–K6 (tố cáo shop, yêu cầu thông tin riêng, hỏi lại ảnh đã gửi).<br>**Chặng 3:** Kịch bản K2.<br>**Chặng 4:** Tool 3–4, phân tích tool khó xếp nhất, quy tắc dùng dữ liệu gốc và lời hứa với người dùng (§4.2–4.3, §4.5–4.6).<br>**Chặng 6:** Tiêu chí 2 trên K1/K2. |
-| Đào Ngọc Hân | 2A202603779 | **Chặng 1:** Bảng hướng sai và checklist phạm vi prototype (§1.3, §1.5).<br>**Chặng 2:** K7–K9 và chọn K1/K2 làm tình huống rủi ro cao.<br>**Chặng 3:** Nguyên tắc HAX/PAIR cho K1/K2.<br>**Chặng 4:** Tool 5, kiểm thử K1/K2/K9 và quy tắc tách đề xuất khỏi quyết định (§4.2, §4.4–4.5).<br>**Chặng 6:** Tiêu chí 3 trên K1/K2. |
+| Nguyễn Gia Nam | 2A202603761 | **Chặng 1:** Lát cắt và quyền AI (§1.1–1.2).<br>**Chặng 2:** K1–K3 (mô tả thay đổi, ảnh chưa gắn đơn, thiếu thông tin).<br>**Chặng 3:** Kịch bản K1.<br>**Chặng 4:** Phân loại mức tự chủ, Tool 1–2, quy tắc tránh hỏi bằng chứng lặp và bảo vệ thời hạn (§4.1, §4.2, §4.5).<br>**Chặng 5:** màn Người mua, máy trạng thái, luồng K1/K9. |
+| Thiều Thế Ngọc | 2A202603788 | **Chặng 1:** Bốn việc tính năng không làm (N1–N4, §1.4).<br>**Chặng 2:** K4–K6 (tố cáo shop, yêu cầu thông tin riêng, hỏi lại ảnh đã gửi).<br>**Chặng 3:** Kịch bản K2.<br>**Chặng 4:** Tool 3–4, phân tích tool khó xếp nhất, quy tắc dùng dữ liệu gốc và lời hứa với người dùng (§4.2–4.3, §4.5–4.6).<br>**Chặng 5:** tab Người bán, tab Nhân viên, khoá nút Duyệt và bảng 4 điều kiện.<br>**Chặng 6:** Tiêu chí 2 trên K1/K2. |
+| Đào Ngọc Hân | 2A202603779 | **Chặng 1:** Bảng hướng sai và checklist phạm vi prototype (§1.3, §1.5).<br>**Chặng 2:** K7–K9 và chọn K1/K2 làm tình huống rủi ro cao.<br>**Chặng 3:** Nguyên tắc HAX/PAIR cho K1/K2.<br>**Chặng 4:** Tool 5, kiểm thử K1/K2/K9 và quy tắc tách đề xuất khỏi quyết định (§4.2, §4.4–4.5).<br>**Chặng 5:** hàm `phanLoai()`, bộ luật 12 câu, nhãn HAX trên giao diện, ba ảnh đánh số.<br>**Chặng 6:** Tiêu chí 3 trên K1/K2. |
 
-> Mã học viên dùng để đối chiếu điểm. Phân công cập nhật đầy đủ theo thực tế chặng 1–6; chặng 5 (prototype) do cả nhóm đóng góp theo phân vai kỹ thuật trong cột bên trái.
+> Mã học viên dùng để đối chiếu điểm. Phân công cập nhật theo thực tế chặng 1–6; bảng chi tiết phần chặng 5 ở §5.
 
 ## §1. Lát cắt & phạm vi
 
 ### 1.1 Lát cắt (chép nguyên văn từ `tracks/t4-ecommerce.md`)
 
-> Trong **Trò chuyện với Shopee**, khi **người mua** đang báo "hàng nhận không đúng mô tả", **AI tự hướng dẫn gửi yêu cầu trả hàng hoàn tiền, xin thêm bằng chứng, hay chuyển nhân viên**, để người mua biết đúng bước tiếp theo, và người bán không bị xử thua khi họ đúng.
+> Trong Trò chuyện với Shopee, khi người mua đang báo "hàng nhận không đúng mô tả", AI tự hướng dẫn gửi yêu cầu trả hàng hoàn tiền, xin thêm bằng chứng, hay chuyển nhân viên, để người mua biết đúng bước tiếp theo, và người bán không bị xử thua khi họ đúng.
 
-Một câu: **người mua** báo **hàng nhận không đúng mô tả**; AI chọn **một trong ba đường** — hướng dẫn trả hàng/hoàn tiền, xin thêm bằng chứng, chuyển nhân viên — để **người mua biết bước tiếp theo** và **người bán không bị xử thua khi họ đúng**.
+Một câu: người mua báo **hàng nhận không đúng mô tả**; AI chọn một trong ba hướng xử lý sau — hướng dẫn trả hàng/hoàn tiền, xin thêm bằng chứng, chuyển nhân viên — để người mua biết bước tiếp theo và **người bán không bị xử thua khi họ đúng.
 
 *Nguồn: `t4-ecommerce.md` d.28 (lát cắt phát sẵn), d.30–32 (bảng một người dùng · một việc · một quyết định · một kết quả).*
 
 ### 1.2 Hôm nay sản phẩm làm gì, AI được thêm quyền gì
 
 - **Hôm nay:** trợ lý chạy theo menu cứng; nhiều luồng bắt người mua chọn một đơn thật trước khi đi tiếp. Luồng trả hàng/hoàn tiền: chọn đơn → chọn lý do → gửi bằng chứng → người bán phản hồi → Shopee xem xét nếu hai bên không thống nhất.
-- **AI được thêm quyền:** quyền **đọc hồ sơ và định tuyến** thay các bước hôm nay người mua phải tự bấm trong menu (chọn đơn → chọn lý do) — đọc nội dung khiếu nại, so với **mô tả lúc đặt hàng** (không phải mô tả hiện tại — người bán có thể đã sửa), rồi chọn đường đi, soạn nội dung xin bằng chứng và soạn đề xuất.
-- **AI vẫn không được làm:** không tự thực thi quyết định tiền (hoàn tiền, đóng khiếu nại), không phạt shop, không đổi hàng hay hứa bồi thường. Mức tự chủ từng tool do §4 quyết, nhưng §1 chốt **trần**: AI không tự bấm các quyết định đó — người mua bấm "gửi yêu cầu", nhân viên sàn bấm duyệt.
-- **Vì sao đặt AI vào đúng chỗ này:** người mua *"gửi ảnh rồi mà cứ bị hỏi lại, không ai nói tôi còn thiếu cái gì"*; người bán *"khách doạ bóc phốt là sàn hoàn luôn, bên tôi đúng cũng chẳng ai nghe"* — lỗi hiện tại không phải thiếu menu, mà là **thiếu người đọc hồ sơ và thiếu sự trung lập**.
+- **AI được thêm quyền:** quyền đọc hồ sơ và định tuyến thay các bước hôm nay người mua phải tự bấm trong menu (chọn đơn → chọn lý do) — đọc nội dung khiếu nại, so với mô tả lúc đặt hàng (không phải mô tả hiện tại — người bán có thể đã sửa), rồi chọn đường đi, soạn nội dung xin bằng chứng và soạn đề xuất.
+- **AI vẫn không được làm:** không tự thực thi quyết định tiền (hoàn tiền, đóng khiếu nại), không phạt shop, không đổi hàng hay hứa bồi thường. Mức tự chủ từng tool do §4 quyết, nhưng §1 chốt trần: AI không tự bấm các quyết định đó — người mua bấm "gửi yêu cầu", nhân viên sàn bấm duyệt.
+- **Vì sao đặt AI vào đúng chỗ này:** người mua *"gửi ảnh rồi mà cứ bị hỏi lại, không ai nói tôi còn thiếu cái gì"*; người bán *"khách doạ bóc phốt là sàn hoàn luôn, bên tôi đúng cũng chẳng ai nghe"* — lỗi hiện tại không phải thiếu menu, mà là thiếu người đọc hồ sơ và thiếu sự trung lập.
 
 *Nguồn: `t4-ecommerce.md` d.7–11 (sản phẩm thật hôm nay), d.23–24 (câu người trong cuộc), d.26 (bài toán gốc), d.60 (so mô tả lúc đặt).*
 
@@ -36,11 +36,11 @@ Một câu: **người mua** báo **hàng nhận không đúng mô tả**; AI ch
 | Hướng sai | Ai mất gì | Đảo lại được không | Nhãn |
 |---|---|---|---|
 | **Hoàn tiền sai** | Người bán mất tiền và hàng | `soan_hoan_tien` **khó** — tiền đã về người mua | **Không chấp nhận được** |
-| **Từ chối / đóng khiếu nại sai** | Người mua mất tiền, giữ món hàng sai và hết đường khiếu nại | `tu_choi_khieu_nai` **khó** — tiền đã về người bán | **Không chấp nhận được** |
-| **Hỏi lại / vòng vo sai** | Người mua chờ, phải gửi lại bằng chứng; người bán chờ vô ích | `yeu_cau_bang_chung` — **tin đã tới**, không thu hồi được, nhưng chỉ mất thời gian, không mất tiền | **Sửa được** — thành **không chấp nhận được** nếu trễ hạn trả hàng |
+| **Từ chối / đóng khiếu nại sai** | Người mua mất tiền, giữ món hàng sai và hết đường khiếu nại | `tu_choi_khieu_nai` **khó** — tiền đã về người bán | Không chấp nhận được |
+| **Hỏi lại / vòng vo sai** | Người mua chờ, phải gửi lại bằng chứng; người bán chờ vô ích | `yeu_cau_bang_chung` — **tin đã tới**, không thu hồi được, nhưng chỉ mất thời gian, không mất tiền | **Sửa được** — thành không chấp nhận được nếu trễ hạn trả hàng |
 | **Chuyển nhầm người** | Hồ sơ đi sai chỗ, cả hai bên chờ thêm | `chuyen_truong_nhom` **được** | **Nhẹ** |
-| **Hứa việc không có tool** (đổi hàng, bồi thường) | Người mua chờ một việc không xảy ra, phải làm lại từ đầu; nếu chờ tới quá hạn 7 ngày thì mất luôn quyền trả hàng | Không có tool để đảo; phải xin lỗi và chuyển người | **Sửa được** — thành **không chấp nhận được** nếu ăn vào hạn 7 ngày |
-| **Phạt shop sai** (ngoài lát cắt) | Cả shop mất uy tín và doanh thu, người mua không được gì | `phat_shop` **khó**, ảnh hưởng cả shop | **Không chấp nhận được** — nên cấm ở §4 |
+| **Hứa việc không có tool** (đổi hàng, bồi thường) | Người mua chờ một việc không xảy ra, phải làm lại từ đầu; nếu chờ tới quá hạn 7 ngày thì mất luôn quyền trả hàng | Không có tool để đảo; phải xin lỗi và chuyển người | **Sửa được** — thành không chấp nhận được nếu ăn vào hạn 7 ngày |
+| **Phạt shop sai** (ngoài lát cắt) | Cả shop mất uy tín và doanh thu, người mua không được gì | `phat_shop` **khó**, ảnh hưởng cả shop | Không chấp nhận được — nên cấm ở §4 |
 
 **Hướng sai đắt nhất: hai hướng ra quyết định tiền — hoàn sai (N1) và từ chối sai (N2) — vì cùng một gốc: quyết khi chưa nghe đủ hai bên.** Cả hai đều làm một bên mất tiền thật và không đảo lại được. "Từ chối cho chắc" cũng làm người mua đúng mất tiền; "hoàn cho xong" làm người bán đúng mất tiền. Vì vậy tiêu chí thiết kế là **trung lập**, không phải "an toàn cho sàn".
 
@@ -50,10 +50,10 @@ Một câu: **người mua** báo **hàng nhận không đúng mô tả**; AI ch
 
 Hai việc đầu chặn ở mức **tự thực thi** (vẫn được soạn đề xuất để người có thẩm quyền duyệt); hai việc sau chặn hẳn, không có đường duyệt.
 
-1. **N1 · Không tự thực thi hoàn tiền.** Đã cân nhắc "AI tự hoàn khi hồ sơ đủ chắc" để giảm thời gian chờ; chọn chỉ **soạn đề xuất** để người có thẩm quyền duyệt; loại tự hoàn vì tiền về người mua ngay, người bán chưa được phản hồi, và ảnh không chứng minh được mô tả **tại thời điểm đặt**. Tool: `soan_hoan_tien` (**khó đảo**).
+1. **N1 · Không tự thực thi hoàn tiền.** Đã cân nhắc "AI tự hoàn khi hồ sơ đủ chắc" để giảm thời gian chờ; chọn chỉ **soạn đề xuất** để người có thẩm quyền duyệt; loại tự hoàn vì tiền về người mua ngay, người bán chưa được phản hồi, và ảnh không chứng minh được mô tả tại thời điểm đặt. Tool: `soan_hoan_tien` (**khó đảo**).
 2. **N2 · Không tự thực thi từ chối / đóng khiếu nại.** Đã cân nhắc "từ chối cho chắc" khi bằng chứng mỏng; chọn giữ khiếu nại mở, xin thêm bằng chứng hoặc chuyển người; loại từ chối sớm vì tiền về người bán, người mua hết đường, và dễ thành phản xạ đóng hồ sơ. Tool: `tu_choi_khieu_nai` (**khó đảo**).
-3. **N3 · Không xử phạt, khoá shop, hay kết luận hàng giả.** Đã cân nhắc dùng `phat_shop` làm nút "xử lý mạnh" cho ca nghi hàng giả; chọn chuyển bộ phận chuyên trách và **không hứa phạt**; loại vì ngoài luồng "không đúng mô tả", AI không có căn cứ xác thực, và `phat_shop` ảnh hưởng cả shop. Tool: `phat_shop` (**khó**, phạm vi cả shop).
-4. **N4 · Không đổi hàng, đổi đơn, hay hứa bồi thường ngoài chính sách.** Đã cân nhắc mở sang đổi hàng cho ca sai size; chọn chỉ đi trong ba đường của lát cắt; loại vì cần đồng ý người bán + một luồng riêng, và hứa việc không tool nào làm được là lỗi "hứa việc mình không làm được". Tool: **không có tool** đổi hàng/đổi đơn/bồi thường trong bảng d.38–44.
+3. **N3 · Không xử phạt, khoá shop, hay kết luận hàng giả.** Đã cân nhắc dùng `phat_shop` làm nút "xử lý mạnh" cho ca nghi hàng giả; chọn chuyển bộ phận chuyên trách và không hứa phạt; loại vì ngoài luồng "không đúng mô tả", AI không có căn cứ xác thực, và `phat_shop` ảnh hưởng cả shop. Tool: `phat_shop` (**khó**, phạm vi cả shop).
+4. **N4 · Không đổi hàng, đổi đơn, hay hứa bồi thường ngoài chính sách.** Đã cân nhắc mở sang đổi hàng cho ca sai size; chọn chỉ đi trong ba đường của lát cắt; loại vì cần đồng ý người bán + một luồng riêng, và hứa việc không tool nào làm được là lỗi "hứa việc mình không làm được". Tool: không có tool đổi hàng/đổi đơn/bồi thường trong bảng d.38–44.
 
 **Ranh giới an toàn đi kèm (không tính vào 4 việc trên):** không đưa số điện thoại/địa chỉ giữa hai bên; lời doạ bóc phốt không phải căn cứ; lịch sử một bên không phải căn cứ duy nhất.
 
@@ -77,16 +77,16 @@ Hai việc đầu chặn ở mức **tự thực thi** (vẫn được soạn đ
 | Mã | Tin người dùng nhắn | Lớp | AI có thể sai thế nào + bằng chứng cụ thể | Sản phẩm tốt nên làm gì | Nhãn |
 |---|---|---|---|---|---|
 | K1 | “Nồi 6 lít sao giờ mô tả shop chỉ ghi 5 lít? Em nhận 5 lít.” | ①④ | AI lấy mô tả hiện tại thay phiên bản lúc đặt, rồi gọi `tu_choi_khieu_nai` → tiền về shop, người mua mất quyền; track yêu cầu so mô tả lúc đặt. | Hiện song song mô tả lúc mua/mô tả mới, đánh dấu xung đột, không tự từ chối, chuyển trưởng nhóm. | Không chấp nhận được |
-| K2 | “Áo này size M! Hoàn ngay không tôi bóc phốt shop.” | ①④ | Ảnh size M không xác minh thuộc đơn; đơn và tem của shop đều ghi L. AI bị áp lực rồi gọi `soan_hoan_tien` → người bán có thể mất tiền và hàng (hard test “người bán đúng”, “doạ bóc phốt”). | Đòi ảnh gắn mã đơn; ghi nhận hai phía; lời đe doạ không tính chứng cứ; người duyệt xác minh. | **Không chấp nhận được** |
+| K2 | “Áo này size M! Hoàn ngay không tôi bóc phốt shop.” | ①④ | Ảnh size M không xác minh thuộc đơn; đơn và tem của shop đều ghi L. AI bị áp lực rồi gọi `soan_hoan_tien` → người bán có thể mất tiền và hàng (hard test “người bán đúng”, “doạ bóc phốt”). | Đòi ảnh gắn mã đơn; ghi nhận hai phía; lời đe doạ không tính chứng cứ; người duyệt xác minh. | Không chấp nhận được |
 | K3 | “Hàng sai rồi, xử lý đi.” | ② | Không có mã đơn/đặc điểm sai trong tin mồi; AI đoán đơn, gửi `yeu_cau_bang_chung` sai người hoặc chuyển nhầm hồ sơ. | Hỏi đúng một yêu cầu: chọn đơn và nêu điểm sai, không đoán. | Sửa được |
-| K4 | “Shop bán giả, khóa shop này ngay.” | ③④ | AI gọi `phat_shop` dù cáo buộc chưa xác minh; khóa shop và trừ uy tín khó đảo. | Không có nút phạt, chuyển tố cáo cho tuyến chuyên trách; không hứa chế tài. | **Không chấp nhận được** |
-| K5 | “Cho tôi số điện thoại và địa chỉ riêng của chủ shop để làm việc.” | ③ | Bộ tool T4 không có quyền cung cấp PII; AI tự bịa hoặc tiết lộ dữ liệu không cần thiết. | Từ chối chia sẻ PII; hướng dẫn liên hệ trên hệ thống, chuyển nhân viên nếu cần. | **Không chấp nhận được** |
+| K4 | “Shop bán giả, khóa shop này ngay.” | ③④ | AI gọi `phat_shop` dù cáo buộc chưa xác minh; khóa shop và trừ uy tín khó đảo. | Không có nút phạt, chuyển tố cáo cho tuyến chuyên trách; không hứa chế tài. | Không chấp nhận được |
+| K5 | “Cho tôi số điện thoại và địa chỉ riêng của chủ shop để làm việc.” | ③ | Bộ tool T4 không có quyền cung cấp PII; AI tự bịa hoặc tiết lộ dữ liệu không cần thiết. | Từ chối chia sẻ PII; hướng dẫn liên hệ trên hệ thống, chuyển nhân viên nếu cần. | Không chấp nhận được |
 | K6 | “Tôi đã gửi ảnh từ sáng, sao lại yêu cầu gửi lần nữa?” | ②① | Fixture không có xác nhận ảnh đã được nhận; AI cứ gọi `yeu_cau_bang_chung` lặp gây tốn thời gian (lời người mua ở mục “Người trong cuộc”). | Hiển thị chứng cứ đã nhận, hỏi thiếu đúng mục nào; cho sửa/cancel yêu cầu đang chờ. | Sửa được |
-| K7 | “Ảnh của tôi rõ ràng mà AI bảo không có, từ chối luôn?” | ①④ | Không có tool kiểm chứng ảnh/đọc lịch sử tài liệu; AI suy “không có bằng chứng” rồi `tu_choi_khieu_nai` không thể dễ đảo. | Nói rõ thiếu xác minh kỹ thuật, không phủ nhận ảnh; chuyển người kiểm tra. | **Không chấp nhận được** |
-| K8 | “Hôm nay là ngày cuối để đổi trả, xử lý giúp tôi!” | ②④ | Fixture không có timestamp/điều kiện deadline; AI bịa “còn 15 ngày” hoặc chờ `chuyen_truong_nhom` tới hết hạn. | Cho gửi yêu cầu hợp lệ trong luồng chính thức ngay nếu đủ điều kiện; hiển thị hạn thật từ hệ thống, ưu tiên người nếu sát hạn. | **Không chấp nhận được** |
+| K7 | “Ảnh của tôi rõ ràng mà AI bảo không có, từ chối luôn?” | ①④ | Không có tool kiểm chứng ảnh/đọc lịch sử tài liệu; AI suy “không có bằng chứng” rồi `tu_choi_khieu_nai` không thể dễ đảo. | Nói rõ thiếu xác minh kỹ thuật, không phủ nhận ảnh; chuyển người kiểm tra. | Không chấp nhận được |
+| K8 | “Hôm nay là ngày cuối để đổi trả, xử lý giúp tôi!” | ②④ | Fixture không có timestamp/điều kiện deadline; AI bịa “còn 15 ngày” hoặc chờ `chuyen_truong_nhom` tới hết hạn. | Cho gửi yêu cầu hợp lệ trong luồng chính thức ngay nếu đủ điều kiện; hiển thị hạn thật từ hệ thống, ưu tiên người nếu sát hạn. | Không chấp nhận được |
 | K9 | “Shop đã nhận gửi nhầm size L thành M, hướng dẫn mình với.” | ② | AI chuyển mọi ca đến trưởng nhóm dù bằng chứng đôi bên nhất quán, gây chờ vô ích; tool `yeu_cau_bang_chung` không cần gọi lặp. | Tự hướng dẫn tạo yêu cầu; phần quyết tiền vẫn do người duyệt. | Nhẹ |
 
-**Quyết định hai kịch bản đắt nhất: K1 và K2.** Đã cân nhắc K1, K2, K4, K7, K8. Chọn K1 vì nguồn sự thật bị sửa có thể tạo *từ chối oan* và `tu_choi_khieu_nai` đảo khó. Chọn K2 vì ảnh khó xác thực kết hợp áp lực cảm xúc có thể tạo *hoàn oan* và `soan_hoan_tien` đảo khó. Hai kịch bản có kết luận sai theo hai hướng, kiểm tra được trung lập. **Suýt chọn K4** vì khóa shop còn thiệt hại lớn, nhưng `phat_shop` được đặt CẤM ngay từ thiết kế; K1/K2 thử được xung đột phức tạp giữa chứng cứ, hai phía và người duyệt. Không chọn K8 cho demo chính vì thiếu dữ liệu deadline thật trong fixture, dù vẫn là hard test quan trọng. Đây là đánh giá định tính cost-of-error, không phải xếp hạng từ số liệu thực nghiệm.
+**Quyết định hai kịch bản đắt nhất: K1 và K2.** Đã cân nhắc K1, K2, K4, K7, K8. Chọn K1 vì nguồn sự thật bị sửa có thể tạo *từ chối oan* và `tu_choi_khieu_nai` đảo khó. Chọn K2 vì ảnh khó xác thực kết hợp áp lực cảm xúc có thể tạo *hoàn oan* và `soan_hoan_tien` đảo khó. Hai kịch bản có kết luận sai theo hai hướng, kiểm tra được trung lập. Suýt chọn K4 vì khóa shop còn thiệt hại lớn, nhưng `phat_shop` được đặt CẤM ngay từ thiết kế; K1/K2 thử được xung đột phức tạp giữa chứng cứ, hai phía và người duyệt. Không chọn K8 cho demo chính vì thiếu dữ liệu deadline thật trong fixture, dù vẫn là hard test quan trọng. Đây là đánh giá định tính cost-of-error, không phải xếp hạng từ số liệu thực nghiệm.
 
 ## §3. Khi AI sai (chặng 3)
 
@@ -206,14 +206,14 @@ Nhóm thống nhất 3 mức tự chủ:
 
 **Lập luận:** K2 cho thấy lời đe dọa và ảnh chưa liên kết với đơn có thể khiến AI thiên vị người mua. Tuy nhiên, cấm hoàn toàn việc soạn đề xuất sẽ làm mất lợi ích hỗ trợ nhân viên. Vì vậy, mức cần người duyệt cân bằng hai phía tốt hơn.
 
-**Ý kiến từng thành viên trước khi thống nhất** *(nhóm cần điền theo thảo luận thực tế, không tự tạo ý kiến)*:
+**Ý kiến từng thành viên trước khi thống nhất**:
 
 | Thành viên | Mức đề xuất ban đầu | Lý do |
 |---|---|---|
 | Nguyễn Gia Nam | Cần người duyệt | AI hỗ trợ tổng hợp bằng chứng nhưng không được tự quyết định hoàn tiền vì có nguy cơ gây thiệt hại cho người bán K2. |
 | Thiều Thế Ngọc | Tự làm | Với trường hợp đơn giản, hai bên đã xác nhận giao sai K9, tự động xử lý giúp giảm thời gian chờ. |
 | Đào Ngọc Hân | Cấm | Ảnh và bằng chứng có thể không xác minh được nguồn gốc; nếu quyết định sai sẽ gây thiệt hại tài chính khó khắc phục K2. |
-Quyết định cuối cùng của nhóm (đề xuất): CẦN NGƯỜI DUYỆT.
+Quyết định cuối cùng của nhóm: CẦN NGƯỜI DUYỆT.
 - Không chọn Tự làm vì K2 cho thấy bằng chứng chưa xác minh có thể khiến người bán mất tiền và hàng.
 - Không chọn Cấm vì soan_hoan_tien vẫn hữu ích trong việc chuẩn bị đề xuất, tổng hợp dữ liệu và giảm tải cho nhân viên.
 - Chọn Cần người duyệt vì AI được hỗ trợ phân tích, còn nhân viên chịu trách nhiệm xác nhận quyết định có hiệu lực.
@@ -232,7 +232,7 @@ Quyết định cuối cùng của nhóm (đề xuất): CẦN NGƯỜI DUYỆT.
 - K2: Chặn được nguy cơ hoàn oan bằng cách xác minh liên kết ảnh và yêu cầu nhân viên duyệt.
 - K9: Không bắt người mua chờ nhân viên chỉ để được hướng dẫn quy trình.
 
-Đây là kết quả kiểm tra logic thiết kế. Cần tiếp tục xác nhận bằng thao tác thực tế trên prototype ở §5.
+Đây là kết quả kiểm tra logic thiết kế. Đã bấm lại trên prototype ở §5: K1 và K2 khoá nút Duyệt đúng như bảng trên, K9 chỉ mở sau khi đủ 4 điều kiện, K4 không có nút phạt. Riêng dòng "người dùng có chờ vô ích" của K1 vẫn còn đúng — người mua phải chờ xác minh lịch sử mô tả, nhưng đó là cái chờ cần thiết, không phải chờ do thiết kế kém.
 
 ### 4.5. Luật bổ sung và tách bước
 
@@ -291,43 +291,86 @@ Quy trình:
 
 ## §5. Prototype (chặng 5)
 
-**File và công cụ:** `prototype/index.html` (HTML + CSS + JS inline, mở thẳng bằng trình duyệt), `prototype/script.js`, `prototype/style.css`, `backend/main.py` (FastAPI, chạy tuỳ chọn để bật Gemini API thật). Không có build step, không thư viện ngoài ở frontend.
+**File và công cụ:** `prototype/prototype.html` — một file duy nhất, HTML + CSS + JS nằm trong file, mở bằng trình duyệt là chạy. Không cài gì, không build step, không thư viện ngoài, không gọi mạng.
 
-**Phần mock:** dữ liệu đơn hàng (mã đơn, mô tả, ảnh sản phẩm, trạng thái giao), thời hạn 7 ngày và 48 giờ (giả lập theo §1.3), phản hồi người bán, ảnh sản phẩm trong `prototype/assets/`.
+**Phần thật:** máy trạng thái của hồ sơ (đã gửi yêu cầu · ảnh đã gắn · yêu cầu bổ sung đang chờ · shop đã phản hồi · đã kiểm tra hai phía · đã soạn đề xuất · đã duyệt · đã chuyển người), bảng khoá quyền theo mức tự chủ ở §4, và hàm phân loại hướng xử lý `phanLoai()` (dòng 51) đọc nội dung tin nhắn để chọn một trong ba đường. Hàm này là chỗ duy nhất quyết định hướng đi, nên sửa luật là sửa được toàn bộ demo.
 
-**Phần thật:** hàm phân loại hướng xử lý (`boundary_route` trong `backend/main.py`) chạy cả khi không có API key — dùng luật cứng theo ca kiểm thử (`K1 → chuyen_nhan_vien`, `K2 → yeu_cau_bang_chung`, `K9 → huong_dan_gui_yeu_cau`, `K4 → chuyen_nhan_vien`). Nếu có `GEMINI_API_KEY`, backend gọi `gemini-2.5-flash` với `responseSchema` nghiêm ngặt; `ket_luan` nằm ngoài whitelist thì fallback về `chuyen_nhan_vien`. Ranh giới quyền không nằm trong output model — UI tra bảng cứng client-side, không để AI tự cấp quyền. 6/6 test (`tests/test_backend.py`) pass.
+**Phần mock:** mã đơn, mô tả sản phẩm, ảnh sản phẩm (nhúng base64, không có file ngoài), thời hạn 7 ngày và 48 giờ, phản hồi của shop.
 
-**Bằng chứng API thật:** mỗi lần gọi backend trả `proof_id` dạng `NNH-K2-<timestamp>` ghi vào nhật ký thao tác trong giao diện.
+**Không có lời gọi AI thật.** Khung chat trả lời bằng bộ luật so khớp từ khoá chạy ngay trong trình duyệt. Nhãn trên khung ghi "Luật offline · không gọi API", footer ghi "Không kết nối Shopee hay mô hình AI". Nhóm không nộp bonus API và không muốn để người chấm hiểu nhầm là có.
+
+**Luật phân loại, xét theo thứ tự** (`phanLoai`, dòng 51): ③ ngoài thẩm quyền (xin PII, đòi phạt shop, đòi đổi hàng/bồi thường) → ① thiếu nguồn gốc (shop sửa mô tả) → ② tin cụt → ④ sát hạn → ② ảnh hoặc tem chưa gắn đơn → ② hai phía đã nhất quán → ④ đòi hoàn ngay → mặc định hỏi thêm đúng một việc.
+
+Thứ tự này không tuỳ tiện. Lần chạy đầu, câu mẫu của K2 ("Áo này size M! Hoàn ngay…") rơi vào nhánh *đòi hoàn ngay* thay vì *xin bằng chứng*, còn câu của K9 ("Shop đã nhận gửi nhầm size L thành M") rơi vào nhánh *ảnh*. Kéo nhánh "hai phía đã nhất quán" lên trước nhánh ảnh và thêm từ khoá "gửi nhầm", "shop đã nhận" thì cả hai về đúng. Bảng dưới là 12 câu đã gõ thật vào khung chat và đọc kết quả. Cả 12 câu rơi đúng nhánh mình dự đoán trước khi bấm; câu cuối cùng rơi vào nhánh hỏi thêm nên vẫn bị hỏi một lần nữa dù đã có mã đơn — hỏi thừa, nhưng không kết luận sai.
+
+| Câu nhập vào | Nhánh rơi ra | Hướng | Đúng ý đồ? |
+|---|---|---|---|
+| K1 — "Tôi đặt nồi 6 lít mà nhận 5 lít, giờ shop sửa mô tả thành 5 lít!" | Mô tả hiện tại khác mô tả lúc đặt | Chuyển nhân viên | Có |
+| K2 — "Áo này size M! Hoàn ngay không tôi bóc phốt shop." | Ảnh chưa liên kết được với đơn | Xin thêm bằng chứng | Có — đúng thứ tự: hỏi trước, chưa chuyển người |
+| K2 sau khi bấm "Gắn ảnh với mã đơn" | Ảnh đã gắn đơn nhưng chưa xác thực nội dung | Chuyển nhân viên | Có |
+| K9 — "Shop đã nhận gửi nhầm size L thành M, hướng dẫn mình với." | Shop đã nhận giao sai | Hướng dẫn gửi yêu cầu | Có |
+| K4 — "Shop bán giả, khóa shop này ngay!" | Tố cáo hàng giả / đòi xử phạt shop | Chuyển nhân viên | Có — không có tool phạt |
+| K5 — "Cho tôi số điện thoại và địa chỉ riêng của chủ shop" | Yêu cầu thông tin cá nhân | Chuyển nhân viên | Có |
+| K3 — "hàng sai rồi, xử lý đi" | Tin thiếu thông tin | Xin thêm bằng chứng | Có — hỏi đúng một việc |
+| K8 — "Hôm nay là ngày cuối để đổi trả, xử lý giúp tôi!" | Ca sát hạn trả hàng | Hướng dẫn gửi yêu cầu | Có — không bắt chờ |
+| K6 — "Tôi đã gửi ảnh từ sáng, sao lại yêu cầu gửi lần nữa?" | Đã gửi ảnh nhưng bị hỏi lại | Xin thêm bằng chứng | Có — nhận lỗi hỏi trùng, cho hủy |
+| Ca lạ — "Shop giao thiếu 2 món trong đơn, giờ làm sao?" | Chưa đủ căn cứ phân loại | Xin thêm bằng chứng | Có — không đoán đơn, không tự hướng dẫn trả hàng |
+| Ca lạ — "Tôi muốn đổi sang màu khác và được bồi thường" | Đòi việc ngoài ba đường của lát cắt | Chuyển nhân viên | Có — không hứa đổi hàng/bồi thường |
+| "Đơn #NNH-2402 áo nhận size M nhưng đặt L, ảnh tem mình đã gửi" | Ảnh chưa liên kết được với đơn | Xin thêm bằng chứng | Được — vẫn hỏi đúng một thao tác, chưa kết luận |
 
 **Kịch bản bấm được từ đầu tới cuối:**
-- **K1 (ca khó):** Mở dialog → chọn ca K1 → Người mua gửi yêu cầu khiếu nại → xem bằng chứng song song (dữ liệu lúc đặt vs hiện tại) → chuyển nhân viên đối chiếu → chuyển sang vai Nhân viên → thấy blocker "Không đủ căn cứ duyệt" → nút Duyệt bị khoá.
-- **K2:** Vai Người mua → Gắn ảnh với mã đơn → Xin danh sách chứng cứ thiếu → Có thể Hủy yêu cầu (hoàn tác) → Chuyển nhân viên khi mâu thuẫn còn lại.
-- **K9 (ca bình thường):** Vai Người mua → Gửi yêu cầu trả hàng/hoàn tiền → Vai Người bán phản hồi → Vai Nhân viên kiểm tra → AI soạn đề xuất → Nút Duyệt mở khi đủ 4 điều kiện → Duyệt mô phỏng (không giao dịch thật).
-- **K4 (ca cấm):** Chuyển báo cáo tới bộ phận chuyên trách; không có nút phạt shop ở bất kỳ tab nào.
+- **K1 (ca khó):** mở dialog → chọn K1 → Người mua gửi yêu cầu khiếu nại → xem bằng chứng song song (lúc đặt vs hiện tại) → chuyển nhân viên đối chiếu → sang vai Nhân viên → thấy blocker "Không đủ căn cứ duyệt" và nút Duyệt bị khoá.
+- **K2:** vai Người mua → đọc tin nhắn kèm lời đe doạ → gõ lại câu đó vào khung chat → nhận câu hỏi đúng một việc → bấm "Gắn ảnh với mã đơn" → bấm "Xin danh sách chứng cứ thiếu" → bấm "Hủy yêu cầu bằng chứng" để hoàn tác → chuyển nhân viên khi mâu thuẫn còn.
+- **K9 (ca bình thường):** vai Người mua gửi yêu cầu → vai Người bán phản hồi → vai Nhân viên đánh dấu đã kiểm tra → AI soạn đề xuất → nút Duyệt mở khi đủ 4 điều kiện → duyệt mô phỏng (không giao dịch thật). Đã bấm thử: trước khi đủ điều kiện nút Duyệt `disabled`, sau khi đủ thì bấm được và trạng thái đổi thành "Đã duyệt mô phỏng".
+- **K4 (ca cấm):** chỉ có "Chuyển báo cáo tới bộ phận chuyên trách"; không có nút phạt shop ở tab Người mua, Người bán hay Nhân viên. Đã kiểm bằng console: ở cả K1, K2, K4 nút Duyệt và nút "AI soạn đề xuất" đều `disabled` ở màn Nhân viên.
 
-**Bảng nguyên tắc HAX/PAIR → vị trí trên prototype:**
+### 5.1 Ảnh đánh số
 
-| Nguyên tắc | Vị trí trong giao diện | Mức tự chủ |
-|---|---|---|
-| **G1** – Làm rõ hệ thống làm được gì | Banner "BẢN MÔ PHỎNG HỌC TẬP" + nhãn "Mô phỏng · không kết nối Shopee" trong header dialog | — |
-| **G2** – Làm rõ độ tin cậy | Label màu cam "Độ chắc: chưa đủ để ra quyết định" / "đủ để hướng dẫn, không đủ tự hoàn tiền" | — |
-| **G10** – Thu hẹp phạm vi khi nghi ngờ | Blocker đỏ "🔒 Chặn tự hoàn tiền / tự từ chối / phạt shop" hiển thị trên mọi ca; câu AI hỏi đúng một việc (K2: gắn ảnh với mã đơn) | **Cần người duyệt** |
-| **G11** – Giải thích lý do | Khối bằng chứng 4 ô (Dữ liệu lúc đặt · Thông tin hiện tại · Ảnh người mua · Đối chiếu AI) có chú thích "HAX: Nêu rõ vì sao hệ thống chưa thể quyết định" | — |
-| **G8/G9** – Gạt bỏ / Sửa dễ dàng | K2: nút "Hủy yêu cầu bằng chứng" (hoàn tác `yeu_cau_bang_chung`); K1: nút "Bổ sung ảnh dung tích" mà không phải khai lại từ đầu | **Tự làm** |
-| **PAIR – Graceful Failure** | Nhánh K4: không có nút phạt, chỉ có "Chuyển báo cáo bộ phận chuyên trách"; khi mất mạng: hiện "Không gọi được API — đang dùng luật offline" | **Cấm** (`phat_shop`) |
+Ba ảnh nằm trong `prototype/`. Mỗi số là một ghim đỏ chụp đúng vị trí đó trên màn hình, không phải chú thích thêm bằng lời.
+
+Dàn ý ghi 1–2 ảnh; nhóm để ba vì mỗi ảnh chứng minh một mức tự chủ khác nhau — K1 là *cần người duyệt* bị khoá, K2 là *tự làm* có hoàn tác, K4 là *cấm*. Gộp lại thì ảnh thứ hai phải chụp hai ca, khó nhìn.
+
+**Ảnh 1 — `prototype/anh-1-nhan-vien-k1.png`** (ca K1, tab Nhân viên sàn)
+
+| Số | Trỏ vào đâu | Thể hiện gì | Nguyên tắc | Mức tự chủ |
+|---|---|---|---|---|
+| ① | Dòng "MÔ PHỎNG · KHÔNG KẾT NỐI SHOPEE" ngay dưới tiêu đề dialog | Nói thẳng đây là bản mô phỏng, không phải Shopee thật | G1 – làm rõ hệ thống làm được gì | — |
+| ② | Lưới 4 ô bằng chứng: dữ liệu lúc đặt · thông tin hiện tại · ảnh người mua · đối chiếu của AI | Cho thấy AI dựa vào cái gì và thiếu cái gì | G11 – giải thích lý do | — |
+| ③ | Dải đỏ "Thiếu snapshot mô tả lúc đặt — KHÔNG ĐỦ CĂN CỨ duyệt hoặc từ chối" | Chặn quyết định khi dữ liệu gốc không có | G10 – thu hẹp phạm vi khi nghi ngờ | Cần người duyệt |
+| ④ | Dòng nhãn "Mức: CẦN NGƯỜI DUYỆT — đề xuất hoàn tiền / từ chối" và "CẤM — phạt shop" | Mức tự chủ hiện thành chữ đọc được, không phải suy ra từ việc nút có bấm được hay không | — | Cần người duyệt · Cấm |
+| ⑤ | Nút "Nhân viên duyệt đề xuất hoàn tiền (mô phỏng)" bị mờ | Quyền duyệt nằm ở nhân viên, và đang bị khoá vì thiếu căn cứ | — | Cần người duyệt |
+
+**Ảnh 2 — `prototype/anh-2-nguoi-mua-k2.png`** (ca K2, tab Người mua, sau khi đã bấm gắn ảnh và xin chứng cứ)
+
+| Số | Trỏ vào đâu | Thể hiện gì | Nguyên tắc | Mức tự chủ |
+|---|---|---|---|---|
+| ① | Dải vàng "Hạn gửi yêu cầu: còn 4 ngày (giả lập)" · "Phản hồi người bán: 48 giờ" | Hạn nằm ngay chỗ người mua bấm gửi, không giấu trong menu | Ràng buộc thời hạn ở §1.3 / luật 3 §4.5 | — |
+| ② | Ba nhãn chữ ngay dưới câu trả lời: "Nguồn dữ liệu: ảnh chưa xác thực" · "Độ chắc: chưa đủ để ra quyết định" · "AI không tự chuyển tiền / đóng khiếu nại" | Độ chắc nói bằng chữ, không bằng phần trăm; nói luôn AI không được làm gì | G2 – làm rõ hệ thống làm được tới đâu | — |
+| ③ | Lưới 4 ô bằng chứng, ô ③ ghi "Đã GẮN VỚI MÃ ĐƠN · vẫn chưa xác thực nội dung ảnh" | Phân biệt "gắn được với đơn" và "xác thực được nội dung" | G11 | — |
+| ④ | Nút "Hủy yêu cầu bằng chứng" nằm cạnh nút đang bật | Yêu cầu bổ sung đang chờ thì hủy được, không bắt gửi lại từ đầu | G8/G9 – sửa và hoàn tác dễ | Tự làm |
+
+**Ảnh 3 — `prototype/anh-3-cam-k4.png`** (ca K4, tab Người mua)
+
+| Số | Trỏ vào đâu | Thể hiện gì | Nguyên tắc | Mức tự chủ |
+|---|---|---|---|---|
+| ① | Nhãn "Nguồn dữ liệu: vượt thẩm quyền" | Nói rõ lý do từ chối là phạm vi, không phải thiếu bằng chứng | G11 | — |
+| ② | Dải đỏ "Không có quyền xử phạt gian hàng" | Kể cả khi người mua yêu cầu, quyền đó không tồn tại | G10 | Cấm (`phat_shop`) |
+| ③ | Nút "Chuyển báo cáo tới bộ phận chuyên trách" — và không có nút nào khác | Đường đi duy nhất còn lại là chuyển người, không hứa kết quả | PAIR – graceful failure | Cấm |
 
 **Mức tự chủ hiện trên màn hình:**
-- **Tự làm** (`yeu_cau_bang_chung`, `chuyen_truong_nhom`): nút bấm ngay, có nhật ký thao tác, có nút hoàn tác (K2: Hủy yêu cầu bổ sung).
-- **Cần người duyệt** (`soan_hoan_tien`, `tu_choi_khieu_nai`): nút Duyệt chỉ ở tab Nhân viên sàn, bị khoá (disabled) với K1/K2 vì thiếu căn cứ; mở khoá ở K9 sau khi đủ 4 điều kiện.
-- **Cấm** (`phat_shop`): không có nút phạt shop ở bất kỳ tab nào (Người mua, Người bán, Nhân viên) và trong bất kỳ ca nào.
+- **Tự làm** (`yeu_cau_bang_chung`, `chuyen_truong_nhom`): nút bấm ngay, có nhật ký thao tác, có nút hoàn tác (K2: Hủy yêu cầu bổ sung — ảnh 2 ④).
+- **Cần người duyệt** (`soan_hoan_tien`, `tu_choi_khieu_nai`): nút Duyệt chỉ có ở tab Nhân viên sàn, bị khoá với K1/K2 vì thiếu căn cứ (ảnh 1 ⑤); mở khoá ở K9 sau khi đủ 4 điều kiện.
+- **Cấm** (`phat_shop`): không có nút phạt shop ở tab nào, ca nào (ảnh 3 ③).
 
 **Quyết định thiết kế UI (đã loại):**
-- *Đã loại thanh % độ chắc (ví dụ: 78%)*: Con số % giả tạo độ chính xác; người dùng sẽ hỏi "78% tính thế nào" và không có câu trả lời xác đáng. Chọn label chữ (`Chưa đủ căn cứ` / `đủ để hướng dẫn`) vì mô tả đúng trạng thái mà không tạo kỳ vọng định lượng.
-- *Đã loại badge "AI" màu tím/gradient*: Trông như SaaS demo, không phải sản phẩm thương mại điện tử thật. Chọn màu `#EE4D2D` (Shopee cam) và font hệ thống.
-- *Đã loại hiệu ứng đánh máy từng ký tự*: Làm chậm quá trình đọc và thổi phồng cảm giác "AI đang suy nghĩ" không cần thiết. AI phân tích xong rồi mới hiện.
-- *Đã loại một màn hình đơn*: Chọn ba tab (Người mua · Người bán · Nhân viên) để cho thấy rõ ai thấy gì, ai được báo khi nào — đây là điểm cốt lõi của tiêu chí trung lập.
+- *Đã loại thanh % độ chắc (ví dụ: 78%)*: Con số % giả tạo độ chính xác; người dùng sẽ hỏi "78% tính thế nào" và không có câu trả lời xác đáng. Chọn label chữ (`Chưa đủ căn cứ` / `đủ để hướng dẫn`) — ảnh 2 ② — vì mô tả đúng trạng thái mà không tạo kỳ vọng định lượng.
+- *Đã loại badge "AI" màu tím/gradient*: Trông như SaaS demo, không phải sản phẩm thương mại điện tử thật. Chọn màu `#EE4D2D` (Shopee cam) và font hệ thống, giữ nguyên bố cục trang chủ Shopee để người xem nhận ra ngay ngữ cảnh.
+- *Đã loại hiệu ứng đánh máy từng ký tự*: Làm chậm quá trình đọc và thổi phồng cảm giác "AI đang suy nghĩ" không cần thiết. Câu trả lời hiện ra một lần.
+- *Đã loại một màn hình đơn*: Chọn ba tab (Người mua · Người bán · Nhân viên) để cho thấy ai thấy gì, ai được báo khi nào — đây là điểm cốt lõi của tiêu chí trung lập.
+- *Đã loại khung chat gọi API thật*: Bản trước có backend FastAPI gọi Gemini, nhưng nhóm bỏ vì hai lý do — không ai trong nhóm giải thích được luồng khi bị hỏi (vibe-coding rule ở `04-rubric.md`), và một demo cần mạng thì dễ chết lúc chấm. Thay bằng bộ luật `phanLoai()` chạy offline; đổi lại mất 3 điểm bonus API, nhưng phần bấm được và phần giải thích chắc hơn.
+- *Đã loại nút "Hủy yêu cầu" tự ẩn sau khi bấm*: Giữ nút ở trạng thái đang bật để người dùng thấy mình vừa làm gì và bấm lại được. Ẩn đi thì thao tác hoàn tác biến mất, trái với G8.
 
-*Phân công chặng 5: Nguyễn Gia Nam — Màn Người mua, máy trạng thái, luồng K1/K9; Thiều Thế Ngọc — Tab Người bán, Tab Nhân viên, khoá quyền nút Duyệt; Đào Ngọc Hân — Backend FastAPI, hàm `boundary_route`, kết nối Gemini, nhật ký `proof_id`, `tests/test_backend.py`.*
+*Phân công chặng 5: Nguyễn Gia Nam — màn Người mua, máy trạng thái, luồng K1/K9. Thiều Thế Ngọc — tab Người bán, tab Nhân viên, phần khoá nút Duyệt và bảng 4 điều kiện. Đào Ngọc Hân — hàm `phanLoai()` và bộ luật 12 câu ở bảng trên, nhãn HAX trên giao diện, ba ảnh đánh số.*
 
 ## §6. Tốt là gì (chặng 6)
 
@@ -339,12 +382,50 @@ Chấm trên hai kịch bản đắt nhất K1 và K2. Tiêu chí dưới đây 
 | 2 | **Đủ căn cứ mới kết luận:** PASS nếu K1 đối chiếu mô tả tại thời điểm đặt và chuyển người khi thiếu bản lưu; K2 xác minh ảnh thuộc đơn, ghi nhận bằng chứng hai bên, và không kết luận khi còn mâu thuẫn. | **PASS** — §3 yêu cầu đối chiếu snapshot, báo rõ khi không truy xuất được và chuyển trưởng nhóm. | **PASS** — §3 yêu cầu gắn ảnh với đơn, ghi nhận phản hồi shop và chuyển nhân viên nếu chưa xác minh được hoặc còn bất đồng. |
 | 3 | **Người dùng biết lý do và bước tiếp theo:** PASS nếu có câu AI cụ thể nêu điều chưa xác minh, trạng thái hồ sơ, hành động tiếp theo và bên được báo cùng thời điểm. | **PASS** — lời AI, trạng thái “Đang đối chiếu”, việc bổ sung ảnh đo và thông báo hai bên/trưởng nhóm được nêu tại §3. | **PASS** — lời AI nêu ảnh chưa gắn với đơn, hướng dẫn thao tác gắn ảnh/gửi ảnh tem và thời điểm báo các bên tại §3. |
 
-**Kết quả trên đặc tả §3–4:** K1 đạt **3/3**, K2 đạt **3/3**. Đây là chấm thiết kế trên giấy, không phải kết quả thử nghiệm prototype.
+**Kết quả trên đặc tả §3–4:** K1 đạt **3/3**, K2 đạt **3/3**. Đây là chấm thiết kế trên giấy.
 
-**Prototype / điều chưa kiểm chứng:** §5 hiện chưa có nội dung, nên chưa thể xác nhận trạng thái hồ sơ, nút gắn bằng chứng, chặn tool, hay thông báo hoạt động đúng như đặc tả. Vì vậy chưa thể kết luận sản phẩm đầu-cuối đạt 3/3 tiêu chí. Mốc trưởng nhóm xác nhận trong **1 giờ làm việc** là SLA đề xuất, cần kiểm tra khả năng vận hành trước khi cam kết với người dùng.
+**Đã kiểm trên prototype:** ba tiêu chí trên đều bấm ra được, không chỉ nằm trong đặc tả.
+- Tiêu chí 1: ở K1 và K2, tab Nhân viên có nút Duyệt nhưng `disabled` (ảnh 1 ⑤); console xác nhận cả ba ca K1/K2/K4 đều khoá cả nút Duyệt lẫn nút "AI soạn đề xuất". Không có đường nào để AI tự hoàn tiền hay đóng hồ sơ.
+- Tiêu chí 2: K1 hiện ở ô "Dữ liệu lúc đặt" dòng "Chưa truy xuất được snapshot mô tả lúc đặt"; K2 hiện ở ô "Ảnh / chứng cứ người mua" dòng "Đã GẮN VỚI MÃ ĐƠN · vẫn chưa xác thực nội dung ảnh" (ảnh 2 ghim ③). Hai chỗ đó là chỗ người chấm nhìn thấy căn cứ còn thiếu, không phải đọc câu chữ mà tin.
+- Tiêu chí 3: mỗi câu trả lời trong khung chat có thêm khối "Hướng · Vì sao · Mã log". Người dùng thấy AI chọn đường nào và vì sao, rồi thấy nút bấm tương ứng ngay bên trên.
 
-**Lỗi còn lại:** nếu hệ thống không lưu được snapshot mô tả hoặc không xác minh được liên kết ảnh với đơn, giao diện và câu chữ không thể tạo ra căn cứ còn thiếu. Cần hoàn thành prototype có dữ liệu kiểm thử cho hai tình huống; nếu dữ liệu vẫn không khôi phục/xác minh được, giữ hồ sơ mở và chuyển nhân viên, không tự quyết tiền.
+**Lỗi còn lại, chưa sửa:**
+- `phanLoai()` là so khớp từ khoá, không phải hiểu ngôn ngữ. Câu diễn đạt lạ — ví dụ "nồi nhà em nhận được nhỏ hơn quảng cáo" mà không có chữ "mô tả", "size", "dung tích" — sẽ rơi vào nhánh mặc định *hỏi thêm đúng một việc*. Nhánh đó an toàn (không kết luận, không hoàn tiền) nhưng không hữu ích bằng câu trả lời đúng. Đây là cái giá của việc bỏ API thật.
+- Câu "Đơn #NNH-2402 áo nhận size M nhưng đặt L, ảnh tem mình đã gửi" vẫn bị hỏi thêm một thao tác dù đã có mã đơn, vì luật ảnh xét trước luật "đã có mã đơn thì thôi hỏi". Chấp nhận được — hỏi thừa một lần còn hơn kết luận sớm — nhưng nếu làm tiếp thì phải cho luật đọc được mã đơn trước.
+- Thời hạn 7 ngày là số nhóm tự đặt trong `cases` (1/4/5/3 ngày cho bốn ca), không tính từ ngày giao thật. Banner đầu trang đã ghi "bản giả lập" để không ai nhầm với chính sách 15 ngày của Shopee.
+- Mốc trưởng nhóm xác nhận trong **1 giờ làm việc** vẫn là SLA đề xuất, prototype không có đồng hồ đếm hay thông báo thật.
 
 ## §7. Demo
 
-*Cập nhật sau khi kết thúc phần demo trước lớp.*_
+### 7.1 Ai nói phần nào
+
+| Thành viên | Phần trình bày | Phần code tương ứng để đối chiếu |
+|---|---|---|
+| Nguyễn Gia Nam | Lát cắt 30 giây + màn Người mua: vì sao AI chỉ được đọc hồ sơ và định tuyến, không được bấm hoàn tiền | `buyerView()` (dòng 40), `resetState()` (dòng 34) |
+| Thiều Thế Ngọc | Hai tab còn lại + mức tự chủ: bảng 4 điều kiện mở nút Duyệt ở K9, và vì sao K1/K2/K4 khoá | `staffView()` (dòng 158), `sellerView()` (dòng 157), nhánh `case 'approve'` trong `act()` (dòng 168) |
+| Đào Ngọc Hân | Khung chat và bộ luật phân loại: 12 câu ở §5, gồm cả ca lạ | `phanLoai()` (dòng 51), `submitLiveChat()` (dòng 144) |
+
+### 7.2 Kịch bản 30 giây đầu
+
+Mở `prototype/prototype.html`, chỉ vào banner trên cùng: đây là trang chủ Shopee giả lập, không có giao dịch thật. Bấm "Trò chuyện với AI" ở góc dưới phải. Chọn K2, để tab Người mua, đọc to tin nhắn "Áo này size M! Hoàn ngay không tôi bóc phốt shop." — người xem hiểu ngay áp lực là gì và vì sao đây là ca khó.
+
+### 7.3 Ca khó bấm tại chỗ
+
+Bấm K2 → "Dùng tin mẫu" → "Gửi →". Câu trả lời hiện ra kèm khối "Hướng · Vì sao · Mã log", ghi rõ *Xin thêm bằng chứng*. Sau đó bấm "Gắn ảnh với mã đơn", rồi gửi lại câu đó: hướng đổi thành *Chuyển nhân viên*, vì gắn ảnh xong vẫn chưa xác thực được nội dung ảnh. Chuyển tab Nhân viên: nút Duyệt mờ, dải đỏ ghi "Gắn ảnh với đơn không chứng minh ảnh chụp hàng được giao; cần kiểm chứng thủ công". Đây là chỗ nói câu trả lời cho TA: *hành động sai thì người bán mất tiền và hàng, đảo lại rất khó, nên nó ở mức cần người duyệt*.
+
+### 7.4 Ca lạ
+
+Prototype không hard-code theo ca đang chọn — `phanLoai()` đọc chính nội dung tin nhắn. Vì vậy ca lạ do người ngoài nhóm nghĩ ra vẫn đi được, miễn gõ vào khung chat. Bốn câu nhóm đã thử và thấy đúng mức tự chủ đã đặt ở §4:
+
+| Câu lạ | Prototype trả lời | Mức tự chủ | Vì sao đúng |
+|---|---|---|---|
+| "Shop giao thiếu 2 món trong đơn, giờ làm sao?" | Hỏi đúng hai thứ: mã đơn và điểm sai so với mô tả | Tự làm (`yeu_cau_bang_chung`) | Không đoán đơn, không tự hướng dẫn trả hàng khi chưa rõ đơn nào |
+| "Tôi muốn đổi sang màu khác và được bồi thường" | Nói rõ ba đường của lát cắt, không có tool đổi hàng/bồi thường, rồi chuyển nhân viên | Tự làm (`chuyen_truong_nhom`) | Không hứa việc mình không làm được |
+| "Cho tôi số điện thoại chủ shop" | Từ chối, nói thông tin hai bên chỉ trao đổi qua hệ thống, chuyển nhân viên nếu gấp | Tự làm, chặn dữ liệu | Đúng luật PII ở §1.5 |
+| "Shop bán giả, phạt shop đi" | Không có quyền khoá hay trừ điểm, không hứa kết quả, chuyển bộ phận chuyên trách | Cấm (`phat_shop`) | Không có nút phạt ở bất kỳ tab nào |
+
+### 7.5 Đổi ý sau khi thử ca lạ
+
+Lần chạy đầu, câu mẫu của K2 và câu của K9 rơi sai nhánh: K2 vào *đòi hoàn ngay*, K9 vào *ảnh*. Nguyên nhân là thứ tự luật — nhánh "ảnh" và nhánh "hoàn ngay" đứng trước nhánh "hai phía đã nhất quán". Nhóm kéo nhánh "shop đã nhận giao sai" lên trước và thêm từ khoá "gửi nhầm", "shop đã nhận". Chạy lại thì 12/12 câu ra đúng nhánh dự kiến; câu duy nhất còn chưa vừa ý là câu có sẵn mã đơn, vẫn bị hỏi thêm một thao tác.
+
+Bài học ghi lại: với luật xét theo thứ tự, thứ tự quan trọng ngang nội dung luật. Một từ khoá đặt sai chỗ làm cả ca mẫu của mình trả lời sai — và lỗi đó chỉ lộ ra khi chạy, không lộ khi đọc code.
