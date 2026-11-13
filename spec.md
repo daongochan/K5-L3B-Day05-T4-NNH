@@ -8,7 +8,7 @@
 | Thiều Thế Ngọc | 2A202603788 | **Chặng 1:** Bốn việc tính năng không làm (N1–N4, §1.4).<br>**Chặng 2:** K4–K6 (tố cáo shop, yêu cầu thông tin riêng, hỏi lại ảnh đã gửi).<br>**Chặng 3:** Kịch bản K2.<br>**Chặng 4:** Tool 3–4, phân tích tool khó xếp nhất, quy tắc dùng dữ liệu gốc và lời hứa với người dùng (§4.2–4.3, §4.5–4.6).<br>**Chặng 6:** Tiêu chí 2 trên K1/K2. |
 | Đào Ngọc Hân | 2A202603779 | **Chặng 1:** Bảng hướng sai và checklist phạm vi prototype (§1.3, §1.5).<br>**Chặng 2:** K7–K9 và chọn K1/K2 làm tình huống rủi ro cao.<br>**Chặng 3:** Nguyên tắc HAX/PAIR cho K1/K2.<br>**Chặng 4:** Tool 5, kiểm thử K1/K2/K9 và quy tắc tách đề xuất khỏi quyết định (§4.2, §4.4–4.5).<br>**Chặng 6:** Tiêu chí 3 trên K1/K2. |
 
-> Mã học viên dùng để đối chiếu điểm. Chặng 5 (prototype) và demo chưa làm.
+> Mã học viên dùng để đối chiếu điểm. Phân công cập nhật đầy đủ theo thực tế chặng 1–6; chặng 5 (prototype) do cả nhóm đóng góp theo phân vai kỹ thuật trong cột bên trái.
 
 ## §1. Lát cắt & phạm vi
 
@@ -61,13 +61,13 @@ Hai việc đầu chặn ở mức **tự thực thi** (vẫn được soạn đ
 
 ### 1.5 Hàng rào phạm vi (checklist cho prototype ở chặng 5)
 
-- [ ] Không có nút **do AI bấm** để hoàn tiền / từ chối / phạt shop. Nút "gửi yêu cầu trả hàng" của **người mua** vẫn có (đó là hành động của người dùng, AI chỉ hướng dẫn). Nếu §4 xếp `soan_hoan_tien` / `tu_choi_khieu_nai` ở *cần người duyệt* thì nút duyệt nằm ở màn hình nhân viên.
-- [ ] Không có nút **đổi hàng / đổi đơn / bồi thường** ngoài chính sách trả hàng hoàn tiền.
-- [ ] Mọi nhánh "không chắc" đều có đường **chuyển nhân viên / trưởng nhóm**.
-- [ ] Có chỗ **xin thêm bằng chứng** và nói rõ người mua còn thiếu gì.
-- [ ] Hiện **thời hạn 7 ngày và còn bao nhiêu ngày** ngay chỗ người mua quyết định gửi yêu cầu (rubric riêng T4 mục 8).
-- [ ] Nếu có màn hình người bán: thấy khiếu nại và **hạn phản hồi** trước khi quyết.
-- [ ] Không hiện **số điện thoại / địa chỉ** giữa hai bên; không dùng lời doạ làm căn cứ.
+- [x] Không có nút **do AI bấm** để hoàn tiền / từ chối / phạt shop. Nút "gửi yêu cầu trả hàng" của **người mua** vẫn có (đó là hành động của người dùng, AI chỉ hướng dẫn). Nếu §4 xếp `soan_hoan_tien` / `tu_choi_khieu_nai` ở *cần người duyệt* thì nút duyệt nằm ở màn hình nhân viên.
+- [x] Không có nút **đổi hàng / đổi đơn / bồi thường** ngoài chính sách trả hàng hoàn tiền.
+- [x] Mọi nhánh "không chắc" đều có đường **chuyển nhân viên / trưởng nhóm**.
+- [x] Có chỗ **xin thêm bằng chứng** và nói rõ người mua còn thiếu gì.
+- [x] Hiện **thời hạn 7 ngày và còn bao nhiêu ngày** ngay chỗ người mua quyết định gửi yêu cầu (rubric riêng T4 mục 8).
+- [x] Nếu có màn hình người bán: thấy khiếu nại và **hạn phản hồi** trước khi quyết.
+- [x] Không hiện **số điện thoại / địa chỉ** giữa hai bên; không dùng lời doạ làm căn cứ.
 
 *Nguồn: `04-rubric.md` d.60 ("việc cấm không có nút làm"), d.90 (TA hỏi "chỗ nào trên màn hình là G__"); `t4-ecommerce.md` d.62 (hạn phản hồi), d.65 (không đưa SĐT/địa chỉ), d.67 (thời hạn trả hàng hiển thị), d.69 (bonus màn người bán).*
 
@@ -291,7 +291,43 @@ Quy trình:
 
 ## §5. Prototype (chặng 5)
 
-_Chưa điền — làm ở chặng 5._ Phải tick đủ 6 ô ở §1.5.
+**File và công cụ:** `prototype/index.html` (HTML + CSS + JS inline, mở thẳng bằng trình duyệt), `prototype/script.js`, `prototype/style.css`, `backend/main.py` (FastAPI, chạy tuỳ chọn để bật Gemini API thật). Không có build step, không thư viện ngoài ở frontend.
+
+**Phần mock:** dữ liệu đơn hàng (mã đơn, mô tả, ảnh sản phẩm, trạng thái giao), thời hạn 7 ngày và 48 giờ (giả lập theo §1.3), phản hồi người bán, ảnh sản phẩm trong `prototype/assets/`.
+
+**Phần thật:** hàm phân loại hướng xử lý (`boundary_route` trong `backend/main.py`) chạy cả khi không có API key — dùng luật cứng theo ca kiểm thử (`K1 → chuyen_nhan_vien`, `K2 → yeu_cau_bang_chung`, `K9 → huong_dan_gui_yeu_cau`, `K4 → chuyen_nhan_vien`). Nếu có `GEMINI_API_KEY`, backend gọi `gemini-2.5-flash` với `responseSchema` nghiêm ngặt; `ket_luan` nằm ngoài whitelist thì fallback về `chuyen_nhan_vien`. Ranh giới quyền không nằm trong output model — UI tra bảng cứng client-side, không để AI tự cấp quyền. 6/6 test (`tests/test_backend.py`) pass.
+
+**Bằng chứng API thật:** mỗi lần gọi backend trả `proof_id` dạng `NNH-K2-<timestamp>` ghi vào nhật ký thao tác trong giao diện.
+
+**Kịch bản bấm được từ đầu tới cuối:**
+- **K1 (ca khó):** Mở dialog → chọn ca K1 → Người mua gửi yêu cầu khiếu nại → xem bằng chứng song song (dữ liệu lúc đặt vs hiện tại) → chuyển nhân viên đối chiếu → chuyển sang vai Nhân viên → thấy blocker "Không đủ căn cứ duyệt" → nút Duyệt bị khoá.
+- **K2:** Vai Người mua → Gắn ảnh với mã đơn → Xin danh sách chứng cứ thiếu → Có thể Hủy yêu cầu (hoàn tác) → Chuyển nhân viên khi mâu thuẫn còn lại.
+- **K9 (ca bình thường):** Vai Người mua → Gửi yêu cầu trả hàng/hoàn tiền → Vai Người bán phản hồi → Vai Nhân viên kiểm tra → AI soạn đề xuất → Nút Duyệt mở khi đủ 4 điều kiện → Duyệt mô phỏng (không giao dịch thật).
+- **K4 (ca cấm):** Chuyển báo cáo tới bộ phận chuyên trách; không có nút phạt shop ở bất kỳ tab nào.
+
+**Bảng nguyên tắc HAX/PAIR → vị trí trên prototype:**
+
+| Nguyên tắc | Vị trí trong giao diện | Mức tự chủ |
+|---|---|---|
+| **G1** – Làm rõ hệ thống làm được gì | Banner "BẢN MÔ PHỎNG HỌC TẬP" + nhãn "Mô phỏng · không kết nối Shopee" trong header dialog | — |
+| **G2** – Làm rõ độ tin cậy | Label màu cam "Độ chắc: chưa đủ để ra quyết định" / "đủ để hướng dẫn, không đủ tự hoàn tiền" | — |
+| **G10** – Thu hẹp phạm vi khi nghi ngờ | Blocker đỏ "🔒 Chặn tự hoàn tiền / tự từ chối / phạt shop" hiển thị trên mọi ca; câu AI hỏi đúng một việc (K2: gắn ảnh với mã đơn) | **Cần người duyệt** |
+| **G11** – Giải thích lý do | Khối bằng chứng 4 ô (Dữ liệu lúc đặt · Thông tin hiện tại · Ảnh người mua · Đối chiếu AI) có chú thích "HAX: Nêu rõ vì sao hệ thống chưa thể quyết định" | — |
+| **G8/G9** – Gạt bỏ / Sửa dễ dàng | K2: nút "Hủy yêu cầu bằng chứng" (hoàn tác `yeu_cau_bang_chung`); K1: nút "Bổ sung ảnh dung tích" mà không phải khai lại từ đầu | **Tự làm** |
+| **PAIR – Graceful Failure** | Nhánh K4: không có nút phạt, chỉ có "Chuyển báo cáo bộ phận chuyên trách"; khi mất mạng: hiện "Không gọi được API — đang dùng luật offline" | **Cấm** (`phat_shop`) |
+
+**Mức tự chủ hiện trên màn hình:**
+- **Tự làm** (`yeu_cau_bang_chung`, `chuyen_truong_nhom`): nút bấm ngay, có nhật ký thao tác, có nút hoàn tác (K2: Hủy yêu cầu bổ sung).
+- **Cần người duyệt** (`soan_hoan_tien`, `tu_choi_khieu_nai`): nút Duyệt chỉ ở tab Nhân viên sàn, bị khoá (disabled) với K1/K2 vì thiếu căn cứ; mở khoá ở K9 sau khi đủ 4 điều kiện.
+- **Cấm** (`phat_shop`): không có nút phạt shop ở bất kỳ tab nào (Người mua, Người bán, Nhân viên) và trong bất kỳ ca nào.
+
+**Quyết định thiết kế UI (đã loại):**
+- *Đã loại thanh % độ chắc (ví dụ: 78%)*: Con số % giả tạo độ chính xác; người dùng sẽ hỏi "78% tính thế nào" và không có câu trả lời xác đáng. Chọn label chữ (`Chưa đủ căn cứ` / `đủ để hướng dẫn`) vì mô tả đúng trạng thái mà không tạo kỳ vọng định lượng.
+- *Đã loại badge "AI" màu tím/gradient*: Trông như SaaS demo, không phải sản phẩm thương mại điện tử thật. Chọn màu `#EE4D2D` (Shopee cam) và font hệ thống.
+- *Đã loại hiệu ứng đánh máy từng ký tự*: Làm chậm quá trình đọc và thổi phồng cảm giác "AI đang suy nghĩ" không cần thiết. AI phân tích xong rồi mới hiện.
+- *Đã loại một màn hình đơn*: Chọn ba tab (Người mua · Người bán · Nhân viên) để cho thấy rõ ai thấy gì, ai được báo khi nào — đây là điểm cốt lõi của tiêu chí trung lập.
+
+*Phân công chặng 5: Nguyễn Gia Nam — Màn Người mua, máy trạng thái, luồng K1/K9; Thiều Thế Ngọc — Tab Người bán, Tab Nhân viên, khoá quyền nút Duyệt; Đào Ngọc Hân — Backend FastAPI, hàm `boundary_route`, kết nối Gemini, nhật ký `proof_id`, `tests/test_backend.py`.*
 
 ## §6. Tốt là gì (chặng 6)
 
@@ -311,4 +347,4 @@ Chấm trên hai kịch bản đắt nhất K1 và K2. Tiêu chí dưới đây 
 
 ## §7. Demo
 
-_Chưa điền — cập nhật sau demo._
+*Cập nhật sau khi kết thúc phần demo trước lớp.*_
